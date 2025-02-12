@@ -1,4 +1,4 @@
-const errorMessages = ['Password must contain atleast 5 letters', 'Password must contain atleast one uppercase letter', 'Password must contain atleast one number', 'Please fill in all fields']
+const errorMessages = ['Password must contain atleast 5 letters', 'Password must contain atleast one number', 'Please fill in all fields']
 
 const registerUser = () => {
     const username = document.querySelector('.username').value
@@ -9,7 +9,16 @@ const registerUser = () => {
     const overlay = document.querySelector('.overlay')
 
     if(username === "" || password === ""){
-        errorText.innerHTML = errorMessages[3] 
+        errorText.innerHTML = errorMessages[2] 
+        return;
+    }
+    if(password.length < 6){
+        errorText.innerHTML = errorMessages[0]
+        return;
+    }
+    const hasNumber = password.split("").some(char => !isNaN(char) && char !== " ");
+    if(!hasNumber){
+        errorText.innerHTML = errorMessages[1]
         return;
     }
 
@@ -22,7 +31,6 @@ const registerUser = () => {
     overlay.style.display = 'block'
 
     localStorage.setItem(username, password)
-    
 }
 
 const registerButton = document.querySelector('.register-btn')

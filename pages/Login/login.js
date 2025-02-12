@@ -10,7 +10,7 @@ const login = () => {
         errorText.innerHTML = errorMessages[3] 
         return;
     }
-    
+    // checks if passwords match
     if(userPassword === password){
         localStorage.setItem('loggedInUser', username)
         window.location.href = '../Homepage/homepage.html'
@@ -20,8 +20,6 @@ const login = () => {
     }
     
 }
-
-
 
 const loginButton = document.querySelector('.login-btn')
 loginButton.addEventListener('click', login);
