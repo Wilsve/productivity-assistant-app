@@ -1,1 +1,82 @@
-/*# sourceMappingURL=login.css.map */
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "ubuntu", sans-serif;
+    letter-spacing: 0;
+
+}
+
+body {
+    background-color: #FFFAEC;
+}
+
+.login-window {
+    background-color: #F5ECD5;
+    margin: 0 auto;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 350px;
+    justify-content: space-between;
+    border-radius: 30px;
+}
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.input-ctn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    padding: 10px 10px;
+    border: none;
+    height: 30px;
+}
+
+
+
+button {
+    width: 150px;
+    height: 60px;
+    border: none;
+    font-size: 19px;
+    border-radius: 9px;
+    color: white;
+    cursor: pointer;
+    
+}
+
+.login-btn {
+    background-color: #578E7E;
+}
+
+.register-btn {
+    background-color: #5BB9FD;
+}
+
+.top-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.subtext{
+    font-size: 21px;
+}
+.welcome-text{
+    font-size: 26px;
+}
