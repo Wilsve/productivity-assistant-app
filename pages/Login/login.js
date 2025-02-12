@@ -6,8 +6,8 @@ const errorMessages = [
 ];
 
 const login = () => {
-    let username = document.querySelector('.username').value.trim();
-    let password = document.querySelector('.password').value.trim();
+    let username = document.querySelector('.username').value;
+    let password = document.querySelector('.password').value;
     let errorText = document.querySelector('.error-message');
 
     if (username === "" || password === "") {
