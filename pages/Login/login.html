@@ -21,14 +21,20 @@
             </div>
             <div class="input-ctn">
                 Password
-                <input type="text" class="password" placeholder="Password">
+                <input type="text" class="password" placeholder="Password" type="password">
                 <p class="error-message"></p>
             </div>
         </div>
         <div class="btn-container">
             <button class="login-btn">Log in</button>
-            <button class="register-btn">Register </button>
+            <div class="register-text">
+                First time here? <a href="../signup/signup.html">REGISTER</a>
+            </div>
         </div>
+    </div>
+    <div class="success-popup">
+        <p>Registration successful! You can now log in.</p>
+        <button class="proceed-btn">Proceed to log in</button>
     </div>
 </body>
 <script src="login.js"></script>

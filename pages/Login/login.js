@@ -1,3 +1,5 @@
+const errorMessages = ['Password must contain atleast 5 letters', 'Password must contain atleast one uppercase letter', 'Password must contain atleast one number', 'Please fill in all fields']
+
 const login = () => {
     let username = document.querySelector('.username').value
     let password = document.querySelector('.password').value
@@ -5,7 +7,7 @@ const login = () => {
     let userPassword = localStorage.getItem(username)
 
     if(username === "" || password === "" ){
-        errorText.innerHTML = 'Please fill in all fields!' 
+        errorText.innerHTML = errorMessages[3] 
         return;
     }
     
@@ -18,6 +20,8 @@ const login = () => {
     }
     
 }
+
+
 
 const loginButton = document.querySelector('.login-btn')
 loginButton.addEventListener('click', login);
