@@ -1,7 +1,16 @@
+:root {
+    zoom: 0.67;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+body {
+    font-family: 'ubuntu', sans-serif;
+    background-color: #FFFAEC;
+    color: #333;
+    line-height: 1.6;
 }
 .navbar {
     display: flex;
@@ -53,4 +62,85 @@
     color: #578E7E; 
     
 }
+}
+.hero {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)
+    ), url('/img/pexels-karolina-grabowska-5208363\ \(kopia\).jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #578E7E;
+    padding: 4rem 2rem;
+    text-align: center;
+    height: 40vh;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+.quote-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 8px;
+    
+}
+
+.quote {
+    font-size: 1.4rem;
+    font-family: 'Ubuntu', sans-serif;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.quote::before {
+    content: '"';
+}
+
+.quote::after {
+    content: '"';
+}
+
+.quote-author {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.quote-author::before {
+    content: "— ";
+}
+
+.loading {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.error {
+    color: #dc3545;
+    font-size: 1.2rem;
+}
+}
+.homepage-h1 {
+    text-align: center;
+    margin-top: 2.5rem;
+    color: #578E7E;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.summary-grid {
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap: 1rem;
+    padding: 3rem;
+
+    .todo-summary, .habits-summary, .planner-summary {
+        background-color: #F5ECD5;
+        color: #578E7E;
+        padding: 1rem;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 }
