@@ -1,0 +1,44 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px black;
+  min-width: 400px;
+  min-height: 400px;
+  padding: 20px;
+  background-color: #F5ECD5;
+}
+form label {
+  font-size: 20px;
+  font-weight: 700;
+}
+form #addEventBtn {
+  background-color: #578E7E;
+  padding: 15px;
+  margin-top: 20px;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+}
+
+input#event-name, input#start-time, input#end-time {
+  height: 30px;
+  padding: 0px;
+}
+
+.event-item {
+  background: #578E7E;
+  border: 1px solid black;
+  width: auto;
+  height: auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.past-event {
+  background-color: grey;
+}/*# sourceMappingURL=planner.css.map */

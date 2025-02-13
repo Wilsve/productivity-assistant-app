@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="planner.css">
+    <script src="planner.js" defer ></script>
+
+</head>
+<body>
+    <form id ="event-form">
+        <label for="event-name">Event name: </label>
+        <input type="text" placeholder="" id="event-name" required> 
+
+        <label for="start-time">Start time: </label>
+        <input type="datetime-local" id="start-time" required> 
+
+        <label for="ebd-time">End time: </label>
+        <input type="datetime-local" id="end-time" required> 
+
+        <button id="addEventBtn" type="submit">Add event</button>
+    </form>
+
+    <label for="filter">Filtrera events</label>
+    <select id="filter">
+    <option value="all"> All</option>
+    <option value="upcoming">Upcoming events</option>
+    <option value="past">Past events</option>
+    </select>
+
+
+    <div id="upcoming-events-container">
+    <h2>Upcoming events</h2>
+    <div id="upcoming-events" class="event-container"></div>
+    </div>
+
+
+    <div id="past-events-container">
+    <h2>Past events</h2>
+    <div id="past-events" class="event-container"></div>
+    </div>
+
+
+
+</body>
+</html>
