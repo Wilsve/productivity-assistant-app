@@ -9,6 +9,9 @@
 
 </head>
 <body>
+    <main>
+    <div class="planner-main">
+    <div class="event-form-container">
     <form id ="event-form">
         <label for="event-name">Event name: </label>
         <input type="text" placeholder="" id="event-name" required> 
@@ -21,15 +24,19 @@
 
         <button id="addEventBtn" type="submit">Add event</button>
     </form>
+</div>
 
+    <div class="events-wrapper">
+     <div class="filter-container"> 
     <label for="filter">Filtrera events</label>
     <select id="filter">
     <option value="all"> All</option>
     <option value="upcoming">Upcoming events</option>
     <option value="past">Past events</option>
     </select>
-
-
+    </div>  
+    
+    <div class="upcoming-past-container">
     <div id="upcoming-events-container">
     <h2>Upcoming events</h2>
     <div id="upcoming-events" class="event-container"></div>
@@ -40,8 +47,10 @@
     <h2>Past events</h2>
     <div id="past-events" class="event-container"></div>
     </div>
+</div>
 
-
-
+</div>
+</div>
+</main>
 </body>
 </html>
