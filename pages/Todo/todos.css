@@ -1,0 +1,158 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "ubuntu", sans-serif;
+}
+
+body {
+  background: #FFFAEC;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.todo-card-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  background-color: #F5ECD5;
+  height: 300px;
+  width: 450px;
+  padding: 50px 70px;
+  color: #578E7E;
+  border-radius: 26px;
+}
+.todo-card-main h1 {
+  text-align: center;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: #578E7E;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-button {
+  width: 370px;
+  border-radius: 13px;
+  margin: 0 auto;
+  padding: 15px 30px;
+  font-size: 22px;
+}
+
+.drop-down {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+select {
+  border: none;
+  background: #578E7E;
+  color: white;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-align: center;
+  width: 130px;
+  padding: 10px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+select:focus {
+  outline: none;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: #F5ECD5;
+  max-width: 590px;
+  width: 530px;
+  padding: 20px 30px;
+  border-radius: 26px;
+  font-weight: bold;
+}
+
+.custom-checkbox {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  display: inline-block;
+  border-radius: 5px;
+  position: relative;
+  transition: all 0.1s;
+}
+
+.custom-checkbox input:checked + .checkmark {
+  background-color: #578E7E;
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 9px;
+  top: 2.5px;
+  width: 7px;
+  height: 16px;
+  border: solid #F5ECD5;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.custom-checkbox input:checked + .checkmark::after {
+  display: block;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  color: #578E7E;
+  font-size: 22px;
+}
+
+.todo-main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category-text {
+  color: #ABABAB;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.time-due {
+  color: #ABABAB;
+  font-weight: bold;
+}/*# sourceMappingURL=todos.css.map */
