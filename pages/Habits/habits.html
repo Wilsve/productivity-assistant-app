@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mina Rutiner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="habits.css">
+    <script src="habits.js" defer></script>
+</head>
+<body>
+    <main>
+        <section id="habits-container">
+            <header>
+                <h1 id="habits-title">Mina Rutiner</h1>
+                <button id="rutine-btn" type="button" aria-label="Lägg till ny rutin">+ Lägg till ny rutin</button>
+            </header>
+            <div class="filter-container-wrapper">
+                <div class="filter-container">
+                    <h2>Filtrera på prioritet</h2>
+                    <select name="filter-dropdown" id="filter-dropdown" aria-label="Filtrera rutiner på prioritet">
+                        <option value="all">Alla</option>
+                        <option value="low">Låg</option>
+                        <option value="medium">Mellan</option>
+                        <option value="high">Hög</option>
+                    </select>
+                </div>
+                <div class="filter-container">
+                    <h2>Sortera efter</h2>
+                    <select name="sort-dropdown" id="sort-dropdown" aria-label="Sortera rutiner">
+                        <option value="priority-falling">Prioritet (fallande)</option>
+                        <option value="priority-rising">Prioritet (stigande)</option>
+                        <option value="repetition-falling">Repetitioner (fallande)</option>
+                        <option value="repetition-rising">Repetitioner (stigande)</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <section id="add-rutine-container" class="hidden" aria-labelledby="add-rutine-title">
+            <button class="back-btn"><i class="fa-solid fa-arrow-left"></i></button>
+            <h2 id="add-rutine-title">Lägg till ny rutin</h2>
+            <form id="add-routine-form">
+                <div class="form-group">
+                    <label for="rutine-title">Titel</label>
+                    <input 
+                        type="text" 
+                        id="rutine-title" 
+                        name="rutine-title"
+                        placeholder="Jag ska..." 
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="category">Kategori</label>
+                    <select name="category" id="category" required>
+                        <option value="health">Hälsa</option>
+                        <option value="work">Arbete</option>
+                        <option value="hobby">Hobby</option>
+                        <option value="home">Hem</option>
+                        <option value="sleep">Sömn</option>
+                        <option value="school">Skola</option>
+                        <option value="other">Övrigt</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="repetition-number">Repetitioner</label>
+                    <input 
+                        type="number" 
+                        id="repetition-number" 
+                        name="repetition-number"
+                        placeholder="Antal repetitioner" 
+                        required
+                    >
+                </div>
+                <fieldset>
+                    <legend>Prioritet</legend>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="priority" value="low" id="low-priority" required>
+                            <label for="low-priority">Låg</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="priority" value="medium" id="medium-priority">
+                            <label for="medium-priority">Mellan</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="priority" value="high" id="high-priority">
+                            <label for="high-priority">Hög</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <button id="submit-rutine">Spara rutin</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
