@@ -38,6 +38,7 @@
             </div>
         </section>
         <section id="add-rutine-container" class="hidden" aria-labelledby="add-rutine-title">
+            <button class="back-btn"><i class="fa-solid fa-arrow-left"></i></button>
             <h2 id="add-rutine-title">Lägg till ny rutin</h2>
             <form id="add-routine-form">
                 <div class="form-group">
@@ -46,7 +47,7 @@
                         type="text" 
                         id="rutine-title" 
                         name="rutine-title"
-                        placeholder="Ange rutinens titel" 
+                        placeholder="Jag ska..." 
                         required
                     >
                 </div>
@@ -61,6 +62,16 @@
                         <option value="school">Skola</option>
                         <option value="other">Övrigt</option>
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="repetition-number">Repetitioner</label>
+                    <input 
+                        type="number" 
+                        id="repetition-number" 
+                        name="repetition-number"
+                        placeholder="Antal repetitioner" 
+                        required
+                    >
                 </div>
                 <fieldset>
                     <legend>Prioritet</legend>
