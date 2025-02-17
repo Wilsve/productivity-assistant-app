@@ -155,4 +155,9 @@ select:focus {
 .time-due {
   color: #ABABAB;
   font-weight: bold;
+}
+
+img {
+  width: 30px;
+  cursor: pointer;
 }/*# sourceMappingURL=todos.css.map */
