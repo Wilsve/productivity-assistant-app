@@ -1,0 +1,275 @@
+@import '../../partials/variables';
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'ubuntu', sans-serif;
+}
+
+body {
+    background: $background-color;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    padding: 100px 0;
+}
+
+.default-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+}
+
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+.todo-card-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    background-color: $secondary-background-color;
+    transition: all 0.3s;
+    width: 450px;
+    padding: 50px 70px;
+    color: $primary-color;
+    border-radius: 26px;
+    h1 {
+        text-align: center;
+    }
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: $primary-color;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.add-button {
+    width: 370px;
+    border-radius: 13px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    font-size: 22px;
+}
+
+.add-todo {
+    width: 370px;
+    border-radius: 13px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    font-size: 22px;
+}
+
+.drop-down {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+select {
+    border: none;
+    background: $primary-color;
+    color: white;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align: center;
+    width: 130px;
+    padding: 10px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+select:focus{
+    outline: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: $secondary-background-color;
+    max-width: 590px;
+    width: 530px;
+    padding: 20px 30px;
+    border-radius: 26px;
+    font-weight: bold;
+
+}
+
+
+.custom-checkbox {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .checkmark {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    display: inline-block;
+    border-radius: 5px;
+    position: relative;
+    transition: all 0.1s;
+  }
+  
+  .custom-checkbox input:checked + .checkmark {
+    background-color: $primary-color;
+    
+  }
+  
+  .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 9px;
+    top: 2.5px;
+    width: 7px;
+    height: 16px;
+    border: solid $secondary-background-color;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+  
+  .custom-checkbox input:checked + .checkmark::after {
+    display: block;
+  }
+  
+.title {
+    display: flex;
+    justify-content: space-between;
+    color: $primary-color;
+    font-size: 22px;
+}
+
+.todo-main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    width: 100%;
+}
+
+.category-text {
+    color: #ABABAB;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.time-due {
+    color: #ABABAB;
+    font-weight: bold;
+
+}
+img {
+    width: 30px;
+    cursor: pointer;
+    
+}
+.edit-delete {
+    display: none;
+    flex-direction: column;
+    background-color: $primary-color;
+    width: 150px;
+    color: white;
+    position: absolute;
+    top: 30px;
+    right: -120px;
+
+    h3 {
+        padding: 20px;
+    }
+    h3:hover {
+        background: #467165;
+        cursor: pointer;
+    }
+
+
+}
+
+.add-todo-card {
+    flex-direction: column;
+    gap: 50px;
+    font-weight: 600;
+    display: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    font-size: 23px;
+    gap: 10px
+}
+
+input {
+    border: none;
+}
+
+input:focus{
+    outline: none;
+}
+.detail-ctn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type=date] {
+    color: white;
+    background: $primary-color;
+    height: 38px;
+    border-radius: 9px;
+    padding: 0 8px;
+    cursor: pointer;
+    font-weight: 600;
+    
+}
+
+input#todo-title {
+    height: 40px;
+    font-size: 20px;
+    padding: 10px;
+}
+
+textarea#todo-desc {
+    min-height: 100px;
+    max-height: 100px;
+    max-width: 430px;
+    min-width: 430px;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+}
+
+textarea:focus {
+    outline: none;
+}
