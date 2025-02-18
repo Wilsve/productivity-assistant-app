@@ -220,5 +220,5 @@ todoContainer.addEventListener('click', (event) => {
         }
     }
 });
-
+loadTodos()
 renderTodos()
