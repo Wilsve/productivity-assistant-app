@@ -8,6 +8,7 @@ const dropdown = document.querySelector('.edit-delete')
 const todoContainer = document.querySelector('.todo-container');
 let openDropdown = false
 let currentEditIndex = null;
+const loggedUser = localStorage.getItem("loggedInUser");
 
 
 let todos = []
@@ -20,6 +21,21 @@ let newTodo = {
     estTime: '',
     category: ''
 }
+
+const loadTodos = () => {
+    if (loggedUser) {
+        const storedTodos = localStorage.getItem(`todos_${loggedUser}`);
+        if (storedTodos) {
+            todos = JSON.parse(storedTodos);
+        }
+    }
+};
+
+const saveTodos = () => {
+    if (loggedUser) {
+        localStorage.setItem(`todos_${loggedUser}`, JSON.stringify(todos));
+    }
+};
 
 const addNewTodo = () => {
     let todoTitle = document.getElementById('todo-title').value
@@ -53,6 +69,7 @@ const addNewTodo = () => {
 
     openDefaultCard()
     renderTodos()
+    saveTodos()
     console.log(todos)
 }
 
@@ -73,11 +90,13 @@ const editTodo = (index) => {
     document.querySelector('.top-text').innerHTML = 'Edit your TODO';
     document.querySelector('.add-todo').innerHTML = 'Save Changes';
 
+    saveTodos()
     openAddNewCard();
 };
 
 const deleteTodo = (index) => {
     todos.splice(index, 1)
+    saveTodos()
     renderTodos();
 }
 
@@ -175,6 +194,8 @@ const openAddNewCard = () => {
 }
 
 const openDefaultCard = () => {
+    let errorText = document.querySelector('.error-text')
+    errorText.innerHTML = ''
     document.querySelector('.top-text').innerHTML = 'Add a new TODO';
     document.querySelector('.add-todo').innerHTML = 'Add TODO';
     document.getElementById('todo-title').value = '';
