@@ -14,7 +14,23 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 80px;
+}
+
+.default-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+}
+
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
 }
 .todo-card-main {
     display: flex;
@@ -22,7 +38,7 @@ main {
     justify-content: space-between;
     width: 300px;
     background-color: $secondary-background-color;
-    height: 300px;
+    transition: all 0.3s;
     width: 450px;
     padding: 50px 70px;
     color: $primary-color;
@@ -50,7 +66,14 @@ button {
     border-radius: 13px;
     margin: 0 auto;
     padding: 15px 30px;
+    font-size: 22px;
+}
 
+.add-todo {
+    width: 370px;
+    border-radius: 13px;
+    margin: 0 auto;
+    padding: 15px 30px;
     font-size: 22px;
 }
 
@@ -58,6 +81,8 @@ button {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    font-size: 18px;
+    text-align: center;
 }
 
 select {
@@ -149,6 +174,7 @@ select:focus{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    position: relative
 }
 
 .category-text {
@@ -166,4 +192,82 @@ img {
     width: 30px;
     cursor: pointer;
     
+}
+.edit-delete {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-color;
+    width: 150px;
+    color: white;
+    position: absolute;
+    top: 30px;
+    right: -120px;
+
+    h3 {
+        padding: 20px;
+    }
+    h3:hover {
+        background: #467165;
+        cursor: pointer;
+    }
+
+
+}
+
+.add-todo-card {
+    flex-direction: column;
+    gap: 50px;
+    font-weight: 600;
+    display: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    font-size: 23px;
+    gap: 10px
+}
+
+input {
+    border: none;
+}
+
+input:focus{
+    outline: none;
+}
+.detail-ctn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type=date] {
+    color: white;
+    background: $primary-color;
+    height: 38px;
+    border-radius: 9px;
+    padding: 0 8px;
+    cursor: pointer;
+    font-weight: 600;
+    
+}
+
+input#todo-title {
+    height: 40px;
+    font-size: 20px;
+    padding: 10px;
+}
+
+textarea#todo-desc {
+    min-height: 100px;
+    max-height: 100px;
+    max-width: 430px;
+    min-width: 430px;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+}
+
+textarea:focus {
+    outline: none;
 }
