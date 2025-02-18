@@ -37,6 +37,11 @@ const addNewTodo = () => {
         category: todoCategory
     }
 
+    if(todoTitle === '' || todoTimeEst === '' || todoCategory === '' || todoDeadline === ''){
+        let errorText = document.querySelector('.error-text')
+        errorText.innerHTML = 'Please fill in all required fields'
+        return;
+    }
     // Om currentEditIndex inte är null så ändras "todon" på rätt index
     if (currentEditIndex !== null) {
         todos[currentEditIndex] = newTodo;
