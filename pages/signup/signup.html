@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Login/login.css">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="success-popup">
+        <p>Registration successful! You can now log in.</p>
+        <a href="../Login/login.html"><button class="proceed-btn">Proceed to log in</button></a>
+    </div>
+    <div class="login-window">
+        <div class="top-text">
+            <h2 class="welcome-text">Welcome Back!</h2>
+            <p class="subtext">Log in to your account</p>
+        </div>
+        <div class="input-container">
+            <div class="input-ctn">
+                Username
+                <input class="username" placeholder="Enter your username" type="text" name="" id="">
+            </div>
+            <div class="input-ctn">
+                Password
+                <input type="password" class="password" placeholder="Enter your password">
+                <p class="error-message"></p>
+
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="register-btn">Register</button>
+            <div class="register-text">
+                Already have an account? <a href="../login/login.html">LOGIN</a>
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script src="signup.js"></script>
+</html>
