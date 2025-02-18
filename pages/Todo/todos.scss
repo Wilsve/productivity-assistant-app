@@ -14,7 +14,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 80px;
+    gap: 60px;
+    padding: 100px 0;
 }
 
 .default-card {
@@ -174,7 +175,8 @@ select:focus{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    position: relative
+    position: relative;
+    width: 100%;
 }
 
 .category-text {
@@ -194,7 +196,7 @@ img {
     
 }
 .edit-delete {
-    display: flex;
+    display: none;
     flex-direction: column;
     background-color: $primary-color;
     width: 150px;
