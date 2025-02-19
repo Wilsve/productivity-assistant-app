@@ -69,32 +69,66 @@ document.addEventListener("DOMContentLoaded", () => {
         
         const now = new Date();
         const filter = filterSelect.value;
+
+        let hasUpcoming = false;
+        let hasPast = false;
+        let hasEvents = false;
         
         events.forEach(event => {
             const eventDiv = document.createElement("div");
             eventDiv.classList.add("event-item");
-            eventDiv.innerHTML = `<b>Event:</b> ${event.name} <br> 
-                      <b>Datum:</b> ${event.start.split("T")[0]} - ${event.end.split("T")[0]} <br> 
-                      <b>Starttid:</b> ${event.start.split("T")[1]} <br> 
-                      <b>Sluttid:</b> ${event.end.split("T")[1]}`;
+            eventDiv.innerHTML = `<b>${event.name} </b> <br> 
+                      Datum: ${event.start.split("T")[0]} - ${event.end.split("T")[0]} <br> 
+                      Starttid: ${event.start.split("T")[1]} <br> 
+                      Sluttid: ${event.end.split("T")[1]}`;
+            
+            
             const deleteBtn = document.createElement("button");
-            deleteBtn.textContent = "❌";
+            deleteBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+            deleteBtn.style.background = "none";
+            deleteBtn.style.border = "none";
+            deleteBtn.style.cursor = "pointer";
+            deleteBtn.style.color = "#F5ECD5";
             deleteBtn.addEventListener("click", () => deleteEvent(event.id));
             
             const editBtn = document.createElement("button");
-            editBtn.textContent = "✏️";
+            editBtn.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+            editBtn.style.background = "none";
+            editBtn.style.border = "none";
+            editBtn.style.cursor = "pointer";
+            editBtn.style.color = "#F5ECD5";
             editBtn.addEventListener("click", () => editEvent(event.id));
             
             eventDiv.appendChild(editBtn);
             eventDiv.appendChild(deleteBtn);
             
-            if (new Date(event.end) < now) {
+            let eventEndTime = new Date (event.end);
+            if (eventEndTime < now){
                 eventDiv.classList.add("past-event");
-                if (filter === "all" || filter === "past") pastList.appendChild(eventDiv);
+
+                if(filter === "all" || filter === "past") {
+                    pastList.appendChild(eventDiv);
+                    hasPast = true;
+                    hasEvents = true;
+                }
             } else {
-                if (filter === "all" || filter === "upcoming") upcomingList.appendChild(eventDiv);
+                if (filter === "all" || filter === "upcoming") { 
+                    upcomingList.appendChild(eventDiv);
+                    hasUpcoming = true;
+                    hasEvents = true;
+                }
             }
         });
+    
+        document.getElementById("upcoming-events-container").style.display = hasUpcoming ? "block" : "none";
+        document.getElementById("past-events-container").style.display = hasPast ? "block" : "none";
+        document.querySelector(".events-wrapper").style.display = hasEvents ? "block" : "none";
+    
+        if (filter === "upcoming" && !hasUpcoming) {
+            alert("Det finns inga kommande evenemang!");
+        } else if (filter === "past" && !hasPast) {
+            alert("Det finns inga förflutna evenemang!");
+        }
     }
     
     function deleteEvent(id) {
@@ -116,4 +150,10 @@ document.addEventListener("DOMContentLoaded", () => {
             deleteEvent(id);
         }
     }
+
+
+
 });
+
+
+
