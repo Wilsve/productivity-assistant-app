@@ -43,6 +43,7 @@ const addNewTodo = () => {
     let todoTimeEst = document.getElementById('time-est').value
     let todoCategory = document.getElementById('choose-category').value
     let todoDeadline = document.getElementById('pick-date').value
+    let errorText = document.querySelector('.error-text')
 
     newTodo = {
         title: todoTitle,
@@ -53,8 +54,20 @@ const addNewTodo = () => {
         category: todoCategory
     }
 
+    let selectedDate = new Date(todoDeadline);
+    let today = new Date();
+
+    if(selectedDate < today){
+        errorText.innerHTML = 'The selected date is in the past! '
+        return;
+    }
+
+    if(todoTitle.length > 23) {
+        errorText.innerHTML = 'Title can not proceed 23 characters!'
+        return;
+    }
+ 
     if(todoTitle === '' || todoTimeEst === '' || todoCategory === '' || todoDeadline === ''){
-        let errorText = document.querySelector('.error-text')
         errorText.innerHTML = 'Please fill in all required fields'
         return;
     }
@@ -66,6 +79,9 @@ const addNewTodo = () => {
     } else {
         todos = [...todos, newTodo]
     }
+
+
+
 
     openDefaultCard()
     renderTodos()
@@ -139,16 +155,17 @@ const renderTodos = () => {
     const editDelete = document.createElement("div");
     editDelete.classList.add("edit-delete");
 
-    const editBtn = document.createElement("h3");
-    editBtn.innerHTML = "Edit";
-    editBtn.addEventListener('click', ()=>editTodo(index))
-
     const deleteBtn = document.createElement("h3");
     deleteBtn.innerHTML = "Delete";
     deleteBtn.addEventListener('click', ()=>deleteTodo(index))
 
-    editDelete.appendChild(editBtn);
+    const editBtn = document.createElement("h3");
+    editBtn.innerHTML = "Edit";
+    editBtn.addEventListener('click', ()=>editTodo(index))
+
+
     editDelete.appendChild(deleteBtn);
+    editDelete.appendChild(editBtn);
 
     const titleDiv = document.createElement("div");
     titleDiv.classList.add("title");
