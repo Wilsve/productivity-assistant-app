@@ -48,6 +48,12 @@ main {
   text-align: center;
 }
 
+.description-text {
+  max-width: 380px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
 .filter-container {
   display: flex;
   justify-content: space-between;
@@ -59,6 +65,7 @@ button {
   color: white;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .add-button {
@@ -97,10 +104,15 @@ select {
   border-radius: 9px;
   cursor: pointer;
   font-size: 16px;
+  transition: all 0.2s;
 }
 
 select:focus {
   outline: none;
+}
+
+select:hover {
+  background: #467165;
 }
 
 .todo-item {
@@ -216,10 +228,15 @@ img {
 }
 .edit-delete h3 {
   padding: 20px;
+  transition: all 0.2s;
 }
 .edit-delete h3:hover {
   background: #467165;
   cursor: pointer;
+}
+
+button:hover {
+  background: #467165;
 }
 
 .add-todo-card {

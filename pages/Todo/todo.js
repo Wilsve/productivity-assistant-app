@@ -48,7 +48,7 @@ const addNewTodo = () => {
         title: todoTitle,
         description: todoDesc,
         deadline: todoDeadline,
-        isCompleted: true,
+        isCompleted: false,
         estTime: todoTimeEst,
         category: todoCategory
     }
