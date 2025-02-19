@@ -1,84 +1,135 @@
-const addRutineBtn = document.querySelector('#rutine-btn');
-const addRutineContainer = document.querySelector('#add-rutine-container');
+const addRutineContainer = document.getElementById('add-rutine-container');
 const habitsContainer = document.querySelector('#habits-container');
-
-addRutineBtn.addEventListener('click', () => {
-    addRutineContainer.classList.toggle('hidden');
-    habitsContainer.classList.toggle('hidden');
-});
-
-const backBtn = document.querySelector('.back-btn');
-backBtn.addEventListener('click', () => {
-    addRutineContainer.classList.add('hidden');
-    habitsContainer.classList.remove('hidden');
-});
-
 const form = document.getElementById('add-routine-form');
-form.addEventListener('submit', (e) => {
-    e.preventDefault(); 
-    
-    const title = document.getElementById('rutine-title').value;
-    const repetitions = document.getElementById('repetition-number').value; 
-    const categorySelect = document.getElementById('category');
-    const categoryText = categorySelect.options[categorySelect.selectedIndex].text;
+const filterDropdown = document.getElementById('filter-dropdown');
+const sortDropdown = document.getElementById('sort-dropdown');
+
+const addRutineBtn = document.getElementById('rutine-btn');
+const backBtn = document.querySelector('.back-btn');
+
+//Local och sessionstorage
+const loggedUser = sessionStorage.getItem("loggedInUser");
+let habits = [];
+
+// Ladda sparade rutiner
+function loadHabits() {
+    const storedHabits = localStorage.getItem(`habits_${loggedUser}`);
+    if (storedHabits) {
+        habits = JSON.parse(storedHabits);
+        habits.forEach(habit => displayHabit(habit));
+    }
+}
+
+// Spara rutiner
+function saveHabits() {
+    localStorage.setItem(`habits_${loggedUser}`, JSON.stringify(habits));
+}
+
+
+// Visa/dölj formulär 
+const buttons = [addRutineBtn, backBtn];
+buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        addRutineContainer.classList.toggle('hidden');
+        habitsContainer.classList.toggle('hidden');
+    });
+});
+
+// Hämta form data
+function getFormData() {
     const priorityInput = document.querySelector('input[name="priority"]:checked');
-    const priorityText = document.querySelector(`label[for="${priorityInput.id}"]`).textContent;
-    
-    const resultDiv = document.createElement('div');
-    resultDiv.classList.add('rutine-result');
-    
-    resultDiv.innerHTML = `
-    <div class="routine-card ${priorityInput.value}-priority"> 
+    return {
+        title: document.getElementById('rutine-title').value,
+        goal: document.getElementById('repetition-number').value,
+        category: document.getElementById('category').options[document.getElementById('category').selectedIndex].text,
+        priority: priorityInput.value,
+        priorityText: document.querySelector(`label[for="${priorityInput.id}"]`).textContent,
+        completedReps: 0 
+    };
+}
+// Skapa HTML för kort
+function createCard(habit) {
+    return `
+    <div class="routine-card ${habit.priority}-priority"> 
         <div class="top-container">
             <div class="title-container">
-                <h3>${title}</h3>
-                <p>${categoryText}</p>
+                <h3>${habit.title}</h3>
+                <p>${habit.category}</p>
             </div>
             <div class="counter-container">
                 <div class="counter-header">
-                    <h3>Antal repetitioner:</h3>
-                    <p>${repetitions}</p>
+                    <p>Mål: ${habit.goal} reps</p>
                 </div>
-                <h3>Dagar i rad</h3>
+                <h3><i class="fa-solid fa-fire"></i></h3>
                 <div class="counter-controls">
                     <button class="add-day-btn"><i class="fa-solid fa-plus"></i></button>
-                    <span class="day-count">0</span>
+                    <span class="day-count">${habit.completedReps}</span>
                     <button class="remove-day-btn"><i class="fa-solid fa-minus"></i></button>
                 </div>
             </div>
             <div class="priority-container">
                 <h3>Prioritet</h3>
-                <p>${priorityText}</p>
+                <p>${habit.priorityText}</p>
             </div>
         </div>
         <button class="delete-btn"><i class="fa-regular fa-circle-xmark"></i></button>
-    </div>
-`;
+    </div>`;
+}
 
-    const addDayBtn = resultDiv.querySelector('.add-day-btn');
-    const removeDayBtn = resultDiv.querySelector('.remove-day-btn');
-    const dayCountSpan = resultDiv.querySelector('.day-count');
+// Funktion för att lägga till rutin i DOM
+function displayHabit(habit) {
+    const resultDiv = document.createElement('div');
+    resultDiv.classList.add('rutine-result');
+    resultDiv.innerHTML = createCard(habit);
 
-    addDayBtn.addEventListener('click', () => {
-        let currentCount = parseInt(dayCountSpan.textContent);
-        dayCountSpan.textContent = currentCount + 1;
-    });
-
-    removeDayBtn.addEventListener('click', () => {
-        let currentCount = parseInt(dayCountSpan.textContent);
-        if (currentCount > 0) {
-            dayCountSpan.textContent = currentCount - 1;
-        }
-    });
-
-    const deleteBtn = resultDiv.querySelector('.delete-btn');
-    deleteBtn.addEventListener('click', () => {
-        resultDiv.remove();
-    });
+    const routinesContainer = document.getElementById('routines-container') || 
+        document.createElement('div');
+    routinesContainer.id = 'routines-container';
     
-    document.body.appendChild(resultDiv);
+    if (!document.getElementById('routines-container')) {
+        document.body.appendChild(routinesContainer);
+    }
+    routinesContainer.appendChild(resultDiv);
+}
+// Hanterar +,- och delete knappar
+document.body.addEventListener('click', (e) => {
+    const target = e.target.closest('button');
+    if (!target) return;
+
+    const card = target.closest('.rutine-result');
+    if (!card) return;
+
+    const dayCount = card.querySelector('.day-count');
+    const index = Array.from(card.parentElement.children).indexOf(card);
+
+    if (target.classList.contains('add-day-btn')) {
+        habits[index].completedReps++;
+        dayCount.textContent = habits[index].completedReps;
+        saveHabits();
+    } 
+    else if (target.classList.contains('remove-day-btn') && habits[index].completedReps > 0) {
+        habits[index].completedReps--;
+        dayCount.textContent = habits[index].completedReps;
+        saveHabits();
+    }
+    else if (target.classList.contains('delete-btn')) {
+        habits.splice(index, 1);
+        card.remove();
+        saveHabits();
+    }
+});
+
+// Hantera formulär submit
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const habit = getFormData();
+    habits.push(habit);
+    displayHabit(habit);
+    saveHabits();  
     form.reset();
     
     addRutineContainer.classList.add('hidden');
     habitsContainer.classList.remove('hidden');
 });
+
+loadHabits();
