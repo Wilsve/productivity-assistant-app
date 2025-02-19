@@ -233,5 +233,9 @@ todoContainer.addEventListener('click', (event) => {
         }
     }
 });
+
+const backButton = document.querySelector('.back-btn')
+backButton.addEventListener('click', openDefaultCard)
+
 loadTodos()
 renderTodos()

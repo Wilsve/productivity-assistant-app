@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="todos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
@@ -46,7 +47,11 @@
                 </div>
             </div>
             <div class="add-todo-card">
-                <h1 class="top-text">Add new TODO</h1>
+                <div class="todo-header">
+                    <a class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+                    <h1 class="top-text">Add new TODO</h1>
+                    <div style="width: 14px; height: 16px;"></div>
+                </div>
                 <form action="" class="new-todo-title">
                     <label for="">Title</label>
                     <input placeholder="Enter title..." type="text" name="" id="todo-title">
