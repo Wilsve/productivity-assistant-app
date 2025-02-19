@@ -48,7 +48,7 @@ const addNewTodo = () => {
         title: todoTitle,
         description: todoDesc,
         deadline: todoDeadline,
-        isCompleted: false,
+        isCompleted: true,
         estTime: todoTimeEst,
         category: todoCategory
     }
@@ -100,10 +100,17 @@ const deleteTodo = (index) => {
     renderTodos();
 }
 
+const handleCheckbox = (todo, todoMain) => {
+    todo.isCompleted = !todo.isCompleted
+    todoMain.style.textDecoration = todo.isCompleted ? 'line-through' : 'none';
+}
+
 
 const renderTodos = () => {
     todoContainer.innerHTML = ""
     todos.forEach((todo, index) => {
+
+    const todoMain = document.createElement("div");
 
     const todoItem = document.createElement("div");
     todoItem.classList.add("todo-item");
@@ -114,13 +121,19 @@ const renderTodos = () => {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
 
+
+    checkbox.checked = todo.isCompleted;
+    todoMain.style.textDecoration = todo.isCompleted ? 'line-through' : 'none';
+
+    checkbox.addEventListener('click', ()=>handleCheckbox(todo, todoMain))
+    
+
     const checkmark = document.createElement("span");
     checkmark.classList.add("checkmark");
 
     checkboxLabel.appendChild(checkbox);
     checkboxLabel.appendChild(checkmark);
 
-    const todoMain = document.createElement("div");
     todoMain.classList.add("todo-main");
 
     const editDelete = document.createElement("div");
