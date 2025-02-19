@@ -10,8 +10,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 60px;
-    padding: 100px 0;
 }
 .hidden {
     display: none !important;
@@ -270,7 +268,7 @@ background-color: #578e7e;
     border-radius: 1rem;
     padding: 2rem;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-    margin-top: 2rem; 
+    margin: 1rem; 
     font-family: 'ubuntu', sans-serif;
     color: #578e7e;
 
