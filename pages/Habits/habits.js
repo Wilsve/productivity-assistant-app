@@ -87,7 +87,7 @@ function displayHabit(habit) {
     routinesContainer.id = 'routines-container';
     
     if (!document.getElementById('routines-container')) {
-        document.body.appendChild(routinesContainer);
+        document.querySelector('main').appendChild(routinesContainer);
     }
     routinesContainer.appendChild(resultDiv);
 }
