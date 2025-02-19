@@ -8,7 +8,7 @@ const dropdown = document.querySelector('.edit-delete')
 const todoContainer = document.querySelector('.todo-container');
 let openDropdown = false
 let currentEditIndex = null;
-const loggedUser = localStorage.getItem("loggedInUser");
+const loggedUser = sessionStorage.getItem("loggedInUser");
 
 
 let todos = []
