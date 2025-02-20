@@ -62,21 +62,28 @@
                 </form>
                 
                 <div class="detail-ctn">
-                    <select name="" id="choose-category">
-                        <option value="Work">Work</option>
-                        <option value="Health">Health</option>
-                        <option value="Hobby">Hobby</option>
-                        <option value="Household">Household</option>
-                    </select>
-                    
-                    <select name="" id="time-est">
-                        <option value="1-3 Hours">1-3 Hours</option>
-                        <option value="1-4 Weeks">1-4 Weeks</option>
-                        <option value="1-3 Months">1-3 Months</option>
-                        <option value="3+ Months">3+ Months</option>
-                    </select>
-                    
-                    <input type="date" name="" id="pick-date">
+                    <div class="sort">
+                        <div class="sort-text">Category</div>
+                        <select name="" id="choose-category">
+                            <option value="Work">Work</option>
+                            <option value="Health">Health</option>
+                            <option value="Hobby">Hobby</option>
+                            <option value="Household">Household</option>
+                        </select>
+                    </div>
+                    <div class="sort">
+                        <div class="sort-text">Est. time</div>
+                        <select name="" id="time-est">
+                            <option value="1-3 Hours">1-3 Hours</option>
+                            <option value="1-4 Weeks">1-4 Weeks</option>
+                            <option value="1-3 Months">1-3 Months</option>
+                            <option value="3+ Months">3+ Months</option>
+                        </select>
+                    </div>
+                    <div class="sort">
+                        <div class="sort-text">Due date</div>
+                        <input type="date" name="" id="pick-date">
+                    </div>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 20px;">
                     <h3 class="error-text" style="color: red; text-align: center;"></h3>

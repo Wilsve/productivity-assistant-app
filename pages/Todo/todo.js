@@ -44,6 +44,8 @@ const addNewTodo = () => {
     let todoCategory = document.getElementById('choose-category').value
     let todoDeadline = document.getElementById('pick-date').value
     let errorText = document.querySelector('.error-text')
+    let todoDeadlineInput = document.getElementById('pick-date')
+    let todoTitleInput = document.getElementById('todo-title')
 
     newTodo = {
         title: todoTitle,
@@ -67,8 +69,17 @@ const addNewTodo = () => {
         return;
     }
  
-    if(todoTitle === '' || todoTimeEst === '' || todoCategory === '' || todoDeadline === ''){
+    if(todoTitle === ''|| todoDeadline === ''){
         errorText.innerHTML = 'Please fill in all required fields'
+        todoTitleInput.style.border = todoTitle === '' ? '2px solid red' : 'none'
+        todoDeadlineInput.style.border = todoDeadline === '' ? '2px solid red' : 'none'
+
+        setTimeout(() => {
+            todoTitleInput.style.border = ''
+            todoDeadlineInput.style.border = ''
+            errorText.innerHTML = ''
+        }, 2000);
+
         return;
     }
     // Om currentEditIndex inte är null så ändras "todon" på rätt index
