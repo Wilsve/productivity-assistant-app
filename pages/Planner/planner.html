@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="planner.css">
+    <script src="planner.js" defer ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <main>
+        <nav class="navbar">
+            <img src="/img/logo.svg" alt="Logo" class="logo">
+            <div class="nav-links">
+                <a href="/pages/Todo/todo.html" class="nav-link">TODO</a>
+                <a href="/pages/Habits/habits.html" class="nav-link">HABITS</a>
+                <a href="/pages/Planner/planner.html" class="nav-link">PLANNER</a>
+                <a href="/pages/Login/login.html" class="logout">LOGGA UT</a>
+            </div>
+        </nav>
+    <div class="planner">
+    <div class="event-form-container">
+    <form id ="event-form">
+        <label for="event-name">Vad är planen? :) </label>
+        <input type="text" placeholder="" id="event-name" required> 
+
+        <label for="start-time">Starttid: </label>
+        <input type="datetime-local" id="start-time" required> 
+
+        <label for="end-time">Sluttid: </label>
+        <input type="datetime-local" id="end-time" required> 
+
+        <div class="filter-container"> 
+            <label for="filter">Filtrera evenemang</label>
+            <select id="filter">
+            <option value="all"> Alla evenemang</option>
+            <option value="upcoming">Kommande evenemang</option>
+            <option value="past">Gamla evenemang</option>
+            </select>
+            </div>  
+            <div class="button-container">
+        <button id="addEventBtn" type="submit">Spara event</button>
+    </div>
+      
+    </form>
+    
+</div>
+
+    
+    
+    <div class="events-wrapper">
+    <div class="upcoming-past-container">
+    <div id="upcoming-events-container">
+    <h2 class="upcoming-h2">Kommande evenemang</h2>
+    <div id="upcoming-events" class="event-container"></div>
+    </div>
+
+
+    <div id="past-events-container">
+    <h2 class="past-h2">Gamla evenemang</h2>
+    <div id="past-events" class="event-container"></div>
+    </div>
+</div>
+
+</div>
+</div>
+</main>
+</body>
+</html>
