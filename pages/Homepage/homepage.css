@@ -1,1 +1,132 @@
+
 /*# sourceMappingURL=homepage.css.map */
+
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "ubuntu", sans-serif;
+  background-color: #FFFAEC;
+  color: #333;
+  line-height: 1.6;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #578E7E;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar .logo {
+  height: 70px;
+  margin-left: 30px;
+}
+.navbar .nav-links {
+  display: flex;
+  gap: 1em;
+  padding: 20px;
+}
+.navbar .nav-link {
+  color: #ffffff;
+  font-family: "ubuntu", sans-serif;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+.navbar .nav-link:hover {
+  background-color: #F5ECD5;
+  color: #578E7E;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.navbar .logout {
+  color: #578E7E;
+  font-family: "ubuntu", sans-serif;
+  font-size: 1.2rem;
+  text-decoration: none;
+  background-color: #F5ECD5;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-right: 25px;
+}
+.navbar .logout:hover {
+  background-color: #FFFAEC;
+  color: #578E7E;
+}
+
+.hero {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("/img/pexels-karolina-grabowska-5208363 (kopia).jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #578E7E;
+  padding: 4rem 2rem;
+  text-align: center;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero .quote-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 8px;
+}
+.hero .quote {
+  font-size: 1.4rem;
+  font-family: "Ubuntu", sans-serif;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+.hero .quote::before {
+  content: '"';
+}
+.hero .quote::after {
+  content: '"';
+}
+.hero .quote-author {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+.hero .quote-author::before {
+  content: "— ";
+}
+.hero .loading {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+.hero .error {
+  color: #dc3545;
+  font-size: 1.2rem;
+}
+
+.homepage-h1 {
+  text-align: center;
+  margin-top: 2.5rem;
+  color: #578E7E;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 3rem;
+}
+.summary-grid .todo-summary, .summary-grid .habits-summary, .summary-grid .planner-summary {
+  background-color: #F5ECD5;
+  color: #578E7E;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}/*# sourceMappingURL=homepage.css.map */
+
