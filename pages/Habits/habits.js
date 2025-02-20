@@ -7,6 +7,8 @@ const sortDropdown = document.getElementById('sort-dropdown');
 const addRutineBtn = document.getElementById('rutine-btn');
 const backBtn = document.querySelector('.back-btn');
 
+const errorMessage = document.querySelector('.error-message')
+
 //Local och sessionstorage
 const loggedUser = sessionStorage.getItem("loggedInUser");
 let habits = [];
@@ -144,16 +146,24 @@ form.addEventListener('submit', (e) => {
 filterDropdown.addEventListener('change', () => { 
     const dropdownValue = filterDropdown.value;
     const cards = document.querySelectorAll('.rutine-result');
+    let foundMatch = false;
 
     cards.forEach(card => {
         const routineCard = card.querySelector('.routine-card');
         if (dropdownValue === 'all'){
             card.style.display = 'flex';
+            foundMatch = true;
         } else {
             const hasPriority = routineCard.classList.contains(`${dropdownValue}-priority`);
             card.style.display = hasPriority ? 'flex' :'none';
+            if (hasPriority) foundMatch = true;
         }
     });
+    if (!foundMatch && dropdownValue !== 'all') {
+        errorMessage.textContent = `Det finns inga rutiner att visa`;
+    } else {
+        errorMessage.textContent = '';
+    }
 });
 
 // Sortering 
