@@ -14,16 +14,25 @@
 </head>
 <body>
     <main>
-    <div class="planner-main">
+        <nav class="navbar">
+            <img src="/img/logo.svg" alt="Logo" class="logo">
+            <div class="nav-links">
+                <a href="/pages/Todo/todo.html" class="nav-link">TODO</a>
+                <a href="/pages/Habits/habits.html" class="nav-link">HABITS</a>
+                <a href="/pages/Planner/planner.html" class="nav-link">PLANNER</a>
+                <a href="/pages/Login/login.html" class="logout">LOGGA UT</a>
+            </div>
+        </nav>
+    <div class="planner">
     <div class="event-form-container">
     <form id ="event-form">
-        <label for="event-name">Evenemang: </label>
+        <label for="event-name">Vad är planen? :) </label>
         <input type="text" placeholder="" id="event-name" required> 
 
         <label for="start-time">Starttid: </label>
         <input type="datetime-local" id="start-time" required> 
 
-        <label for="ebd-time">Sluttid: </label>
+        <label for="end-time">Sluttid: </label>
         <input type="datetime-local" id="end-time" required> 
 
         <div class="filter-container"> 
@@ -31,7 +40,7 @@
             <select id="filter">
             <option value="all"> Alla evenemang</option>
             <option value="upcoming">Kommande evenemang</option>
-            <option value="past">Förbipasserade evenemang</option>
+            <option value="past">Gamla evenemang</option>
             </select>
             </div>  
             <div class="button-container">
@@ -53,7 +62,7 @@
 
 
     <div id="past-events-container">
-    <h2 class="past-h2">Förbipasserade evenemang</h2>
+    <h2 class="past-h2">Gamla evenemang</h2>
     <div id="past-events" class="event-container"></div>
     </div>
 </div>
