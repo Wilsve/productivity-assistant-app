@@ -7,6 +7,8 @@ const sortDropdown = document.getElementById('sort-dropdown');
 const addRutineBtn = document.getElementById('rutine-btn');
 const backBtn = document.querySelector('.back-btn');
 
+const errorMessage = document.querySelector('.error-message')
+
 //Local och sessionstorage
 const loggedUser = sessionStorage.getItem("loggedInUser");
 let habits = [];
@@ -138,6 +140,54 @@ form.addEventListener('submit', (e) => {
     
     addRutineContainer.classList.add('hidden');
     habitsContainer.classList.remove('hidden');
+});
+
+//Filtrera på prioritet
+filterDropdown.addEventListener('change', () => { 
+    const dropdownValue = filterDropdown.value;
+    const cards = document.querySelectorAll('.rutine-result');
+    let foundMatch = false;
+
+    cards.forEach(card => {
+        const routineCard = card.querySelector('.routine-card');
+        if (dropdownValue === 'all'){
+            card.style.display = 'flex';
+            foundMatch = true;
+        } else {
+            const hasPriority = routineCard.classList.contains(`${dropdownValue}-priority`);
+            card.style.display = hasPriority ? 'flex' :'none';
+            if (hasPriority) foundMatch = true;
+        }
+    });
+    if (!foundMatch && dropdownValue !== 'all') {
+        errorMessage.textContent = `Det finns inga rutiner att visa`;
+    } else {
+        errorMessage.textContent = '';
+    }
+});
+
+// Sortering 
+sortDropdown.addEventListener('change', () => {
+    const sortValue = sortDropdown.value;
+
+    habits.sort((a,b) => {
+
+        if (sortValue.includes ('priority')){
+            const values = {high: 3, medium: 2, low: 1};
+            return sortValue.includes('falling') ?
+                values[b.priority] - values[a.priority]:
+                values[a.priority] - values[b.priority];
+        }
+       const repsA = parseInt(a.completedReps);
+       const repsB = parseInt(b.completedReps);
+       return sortValue.includes('falling') ?
+            repsB - repsA:
+            repsA - repsB;
+    });
+    const container = document.getElementById('routines-container');
+    container.innerHTML = '';
+    habits.forEach(habit => displayHabit(habit));
+    
 });
 
 loadHabits();

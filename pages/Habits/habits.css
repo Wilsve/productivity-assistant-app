@@ -79,6 +79,12 @@ main {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   margin-top: 1rem;
 }
+#habits-container p {
+  margin-top: 0.7rem;
+  font-family: "ubuntu", sans-serif;
+  font-weight: bold;
+  color: red;
+}
 #habits-container h1 {
   color: #578e7e;
   font-size: 2rem;
@@ -136,6 +142,9 @@ main {
   border: none;
   cursor: pointer;
   font-family: "ubuntu", sans-serif;
+}
+#habits-container .error-messeage p {
+  color: red;
 }
 
 #add-rutine-container {
