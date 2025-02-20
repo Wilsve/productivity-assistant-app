@@ -5,7 +5,6 @@ body{
 .events-wrapper{
     display:flex;
     flex-direction: column;
-    min-width: 340px;
     justify-content: center;
     align-items: center;
     min-height: 340px;
@@ -13,24 +12,10 @@ body{
     background-color: #F5ECD5;
     box-shadow:0 0 5px rgba($color: #000000, $alpha: 1.0);
     border-radius: 10px;
-    
-
 }
 .upcoming-h2, .past-h2{
     justify-content: center;
     display: flex;
-    color: #578E7E;
-}
-.planner-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: auto;
-    height: 100vh;
-}
-.upcoming-past-container{
-    display:flex;
     flex-direction: row;
 
 }
@@ -112,12 +97,6 @@ input#event-name, input#start-time, input#end-time{
     border-radius: 10px;
     box-shadow: 0 0 5px rgba($color: #000000, $alpha: 1.0);
     color: #F5ECD5;
-    
-  
-}
-.past-event{
-    background-color: grey;
-}
 
 .event-item {
     .button{
