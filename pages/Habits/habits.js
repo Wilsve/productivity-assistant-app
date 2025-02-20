@@ -157,6 +157,27 @@ filterDropdown.addEventListener('change', () => {
 });
 
 // Sortering 
+sortDropdown.addEventListener('change', () => {
+    const sortValue = sortDropdown.value;
 
+    habits.sort((a,b) => {
+
+        if (sortValue.includes ('priority')){
+            const values = {high: 3, medium: 2, low: 1};
+            return sortValue.includes('falling') ?
+                values[b.priority] - values[a.priority]:
+                values[a.priority] - values[b.priority];
+        }
+       const repsA = parseInt(a.completedReps);
+       const repsB = parseInt(b.completedReps);
+       return sortValue.includes('falling') ?
+            repsB - repsA:
+            repsA - repsB;
+    });
+    const container = document.getElementById('routines-container');
+    container.innerHTML = '';
+    habits.forEach(habit => displayHabit(habit));
+    
+});
 
 loadHabits();
