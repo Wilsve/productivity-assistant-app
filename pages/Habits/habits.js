@@ -140,4 +140,23 @@ form.addEventListener('submit', (e) => {
     habitsContainer.classList.remove('hidden');
 });
 
+//Filtrera på prioritet
+filterDropdown.addEventListener('change', () => { 
+    const dropdownValue = filterDropdown.value;
+    const cards = document.querySelectorAll('.rutine-result');
+
+    cards.forEach(card => {
+        const routineCard = card.querySelector('.routine-card');
+        if (dropdownValue === 'all'){
+            card.style.display = 'flex';
+        } else {
+            const hasPriority = routineCard.classList.contains(`${dropdownValue}-priority`);
+            card.style.display = hasPriority ? 'flex' :'none';
+        }
+    });
+});
+
+// Sortering 
+
+
 loadHabits();
