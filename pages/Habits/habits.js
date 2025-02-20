@@ -25,6 +25,14 @@ function saveHabits() {
     localStorage.setItem(`habits_${loggedUser}`, JSON.stringify(habits));
 }
 
+// Logga ut
+const logoutBtn = document.querySelector('.logout');
+
+logoutBtn.addEventListener('click', () => {
+    sessionStorage.removeItem('loggedInUser');
+    window.location.href = '../login/login.html';
+});
+
 
 // Visa/dölj formulär 
 const buttons = [addRutineBtn, backBtn];
