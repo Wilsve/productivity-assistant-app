@@ -68,7 +68,7 @@ function createCard(habit) {
             </div>
             <div class="counter-container">
                 <div class="counter-header">
-                    <p>Mål: ${habit.goal} reps</p>
+                    <p>Goal: ${habit.goal} reps</p>
                 </div>
                 <h3><i class="fa-solid fa-fire"></i></h3>
                 <div class="counter-controls">
@@ -78,7 +78,7 @@ function createCard(habit) {
                 </div>
             </div>
             <div class="priority-container">
-                <h3>Prioritet</h3>
+                <h3>Priority</h3>
                 <p>${habit.priorityText}</p>
             </div>
         </div>
