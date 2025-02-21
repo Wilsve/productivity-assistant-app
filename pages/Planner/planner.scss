@@ -12,7 +12,7 @@ html, body, main {
     justify-content: space-between;
     background-color: #578E7E;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    
+    font-weight: 600;
 
 
 .logo {
@@ -139,12 +139,17 @@ html, body, main {
         cursor: pointer;
         font-family: 'ubuntu', sans-serif;
         font-size: 0.8rem;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         &:hover {
             background-color: #F5ECD5;
             color: #578E7E;
             border: 1px solid #578E7E;
             transition: 0.5s;
+            padding: 5px;
         }
     }
 }

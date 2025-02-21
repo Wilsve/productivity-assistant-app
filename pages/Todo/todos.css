@@ -295,6 +295,7 @@ textarea#todo-desc {
 
 textarea:focus {
   outline: none;
+
 }
 
 .navbar {
@@ -358,4 +359,5 @@ textarea:focus {
 
 .sort-text {
   font-size: 18px;
+
 }/*# sourceMappingURL=todos.css.map */

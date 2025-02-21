@@ -20,31 +20,31 @@
                 <a href="/pages/Todo/todo.html" class="nav-link">TODO</a>
                 <a href="/pages/Habits/habits.html" class="nav-link">HABITS</a>
                 <a href="/pages/Planner/planner.html" class="nav-link">PLANNER</a>
-                <a href="/pages/Login/login.html" class="logout">LOGGA UT</a>
+                <a href="/pages/Login/login.html" class="logout">LOG OUT</a>
             </div>
         </nav>
     <div class="planner">
     <div class="event-form-container">
     <form id ="event-form">
-        <label for="event-name">Vad är planen? :) </label>
+        <label for="event-name">Add your event :) </label>
         <input type="text" placeholder="" id="event-name" required> 
 
-        <label for="start-time">Starttid: </label>
+        <label for="start-time">Start time: </label>
         <input type="datetime-local" id="start-time" required> 
 
-        <label for="end-time">Sluttid: </label>
+        <label for="end-time">End time: </label>
         <input type="datetime-local" id="end-time" required> 
 
         <div class="filter-container"> 
-            <label for="filter">Filtrera evenemang</label>
+            <label for="filter">Filter events</label>
             <select id="filter">
-            <option value="all"> Alla evenemang</option>
-            <option value="upcoming">Kommande evenemang</option>
-            <option value="past">Gamla evenemang</option>
+            <option value="all"> All events</option>
+            <option value="upcoming">Upcoming events</option>
+            <option value="past">Past events</option>
             </select>
             </div>  
             <div class="button-container">
-        <button id="addEventBtn" type="submit">Spara event</button>
+        <button id="addEventBtn" type="submit">Add event</button>
     </div>
       
     </form>
@@ -56,13 +56,13 @@
     <div class="events-wrapper">
     <div class="upcoming-past-container">
     <div id="upcoming-events-container">
-    <h2 class="upcoming-h2">Kommande evenemang</h2>
+    <h2 class="upcoming-h2">upcoming events</h2>
     <div id="upcoming-events" class="event-container"></div>
     </div>
 
 
     <div id="past-events-container">
-    <h2 class="past-h2">Gamla evenemang</h2>
+    <h2 class="past-h2">Past events</h2>
     <div id="past-events" class="event-container"></div>
     </div>
 </div>
