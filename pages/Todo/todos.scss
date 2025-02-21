@@ -30,7 +30,7 @@ main {
 .todo-container {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 25px;
     align-items: center;
 }
 .todo-card-main {
@@ -49,6 +49,12 @@ main {
     }
 }
 
+.description-text {
+    max-width: 380px; 
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 .filter-container {
     display: flex;
     justify-content: space-between;
@@ -60,6 +66,7 @@ button {
     color: white;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.2s;
 }
 
 .add-button {
@@ -98,10 +105,15 @@ select {
     border-radius: 9px;
     cursor: pointer;
     font-size: 16px;
+    transition: all 0.2s ;
     
 }
 select:focus{
     outline: none;
+}
+
+select:hover {
+    background: #467165;
 }
 
 .todo-item {
@@ -114,14 +126,22 @@ select:focus{
     padding: 20px 30px;
     border-radius: 26px;
     font-weight: bold;
+    
 
     h2{
         font-size: 24px;
     }
 
 }
+.back-btn {
+    cursor: pointer;
+}
 
-
+.todo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .custom-checkbox {
     display: inline-block;
     position: relative;
@@ -194,7 +214,7 @@ select:focus{
     font-weight: bold;
 
 }
-img {
+.dots {
     width: 30px;
     cursor: pointer;
     
@@ -207,10 +227,12 @@ img {
     color: white;
     position: absolute;
     top: 30px;
+    
     right: -120px;
 
     h3 {
         padding: 20px;
+        transition: all 0.2s;
     }
     h3:hover {
         background: #467165;
@@ -220,6 +242,9 @@ img {
 
 }
 
+button:hover {
+    background: #467165;
+}
 .add-todo-card {
     flex-direction: column;
     gap: 50px;
@@ -277,3 +302,60 @@ textarea#todo-desc {
 textarea:focus {
     outline: none;
 }
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #578E7E;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .navbar .logo {
+    height: 70px;
+    margin-left: 30px;
+  }
+  .navbar .nav-links {
+    display: flex;
+    gap: 1em;
+    padding: 20px;
+  }
+  .navbar .nav-link {
+    color: #ffffff;
+    font-family: "ubuntu", sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 10px 20px;
+  }
+  .navbar .nav-link:hover {
+    background-color: #F5ECD5;
+    color: #578E7E;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  .navbar .logout {
+    color: #578E7E;
+    font-family: "ubuntu", sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    background-color: #F5ECD5;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-right: 25px;
+  }
+  .navbar .logout:hover {
+    background-color: #FFFAEC;
+    color: #578E7E;
+  }
+
+  .sort {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sort-text {
+    font-size: 18px;
+  }

@@ -41,6 +41,7 @@ const login = () => {
 
 const logOut = () => {
     if(sessionStorage.getItem('loggedInUser')== null){
+        window.location.href = '/pages/Login/login.html'
         return
     }
     sessionStorage.removeItem('loggedInUser')
