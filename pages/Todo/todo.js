@@ -127,13 +127,14 @@ const deleteTodo = (index) => {
     renderTodos();
 }
 
+let filteredTodos = [];
 const handleCheckbox = (todo, todoMain) => {
     todo.isCompleted = !todo.isCompleted
     todoMain.style.textDecoration = todo.isCompleted ? 'line-through' : 'none';
     saveTodos()
+    filterCompleted()
 }
 
-let filteredTodos = [];
 
 const filterCompleted = () => {
     const selectFilter = document.getElementById('sort').value;
@@ -158,7 +159,9 @@ const handleChangeCategory = () => {
         finalFilteredTodos = finalFilteredTodos.filter(todo => todo.category === selectCategory);
     }
 
+    
     renderTodos(finalFilteredTodos); 
+
 };
 
 
