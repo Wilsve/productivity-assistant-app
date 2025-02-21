@@ -6,9 +6,12 @@ const addTodoButton = document.querySelector('.add-todo')
 const dots = document.querySelector('.dots')
 const dropdown = document.querySelector('.edit-delete')
 const todoContainer = document.querySelector('.todo-container');
+const loggedUser = sessionStorage.getItem("loggedInUser");
+
+
 let openDropdown = false
 let currentEditIndex = null;
-const loggedUser = sessionStorage.getItem("loggedInUser");
+
 
 
 let todos = []
@@ -127,12 +130,43 @@ const deleteTodo = (index) => {
 const handleCheckbox = (todo, todoMain) => {
     todo.isCompleted = !todo.isCompleted
     todoMain.style.textDecoration = todo.isCompleted ? 'line-through' : 'none';
+    saveTodos()
 }
 
+let filteredTodos = []
 
-const renderTodos = () => {
+const filterCompleted = () => {
+    const selectfilter = document.getElementById('sort').value;
+    if(selectfilter === 'All'){
+        filteredTodos = [...todos]
+    }else{
+        filteredTodos = todos.filter(todo => !todo.isCompleted)
+    }
+    handleChangeCategory()
+    renderTodos(filteredTodos)
+}
+
+const handleChangeCategory = () => {
+    const selectCategory = document.getElementById('category').value;
+
+    let finalFilteredTodos = [...filteredTodos]; 
+
+    if (selectCategory !== "All") {
+        finalFilteredTodos = finalFilteredTodos.filter(todo => todo.category === selectCategory);
+    }
+    renderTodos(finalFilteredTodos)
+};
+
+
+
+
+
+document.getElementById('category').addEventListener('change', handleChangeCategory);
+
+
+const renderTodos = (todoArr = todos) => {
     todoContainer.innerHTML = ""
-    todos.forEach((todo, index) => {
+    todoArr.forEach((todo, index) => {
 
     const todoMain = document.createElement("div");
 
@@ -263,4 +297,6 @@ const backButton = document.querySelector('.back-btn')
 backButton.addEventListener('click', openDefaultCard)
 
 loadTodos()
-renderTodos()
+filteredTodos = [...todos];
+renderTodos(filteredTodos)
+filterCompleted()
