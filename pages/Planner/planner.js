@@ -3,23 +3,40 @@ document.addEventListener("DOMContentLoaded", () => {
     const upcomingList = document.getElementById("upcoming-events");
     const pastList = document.getElementById("past-events");
     const filterSelect = document.getElementById("filter");
+
+
+    const loggedUser = sessionStorage.getItem("loggedInUser");
+    if (!loggedUser) {
+        alert("Ingen användare är inloggad!");
+        return;
+    }
     
     eventForm.addEventListener("submit", addEvent);
     filterSelect.addEventListener("change", displayEvents);
     displayEvents();
+
+    const logoutBtn = document.querySelector(".logout");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+            sessionStorage.removeItem("loggedInUser"); 
+            window.location.href = "login.html"; 
+        });
+    }
     
     function getEvents() {
         try {
-            return JSON.parse(localStorage.getItem("events")) || [];
+            return JSON.parse(localStorage.getItem(`events_${loggedUser}`)) || [];
         } catch (error) {
             console.error("Fel vid hämtning av händelser:", error);
             return [];
         }
     }
+
+    
     
     function saveEvents(events) {
         try {
-            localStorage.setItem("events", JSON.stringify(events));
+            localStorage.setItem(`events_${loggedUser}`, JSON.stringify(events));
         } catch (error) {
             console.error("Fel vid sparande av händelser:", error);
         }
@@ -60,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         displayEvents();
         eventForm.reset();
     }
+    
     
     function displayEvents() {
         upcomingList.innerHTML = "";
