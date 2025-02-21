@@ -40,6 +40,7 @@ main {
     color: #ffffff;
     font-family: 'ubuntu', sans-serif;
     font-size: 1.2rem;
+    font-weight: 600;
     text-decoration: none;
     padding: 10px 20px;
 }
@@ -53,6 +54,7 @@ main {
     color: #578E7E;
     font-family: 'ubuntu', sans-serif;
     font-size: 1.2rem;
+    font-weight: 600;
     text-decoration: none;
     background-color: #F5ECD5;
     padding: 10px 20px;
@@ -79,6 +81,14 @@ main {
   padding: 2rem;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   margin-top: 1rem;
+
+p {
+  margin-top: 0.7rem;
+  font-family: 'ubuntu', sans-serif;
+  font-weight: bold;
+  color: red;
+  
+}
 
 h1 {
   color: #578e7e;
@@ -138,6 +148,9 @@ h1 {
   border: none;
   cursor: pointer;
   font-family: 'ubuntu', sans-serif;
+}
+.error-messeage p {
+  color: red;
 }
 }
 #add-rutine-container {

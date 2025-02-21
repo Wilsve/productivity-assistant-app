@@ -7,6 +7,8 @@ const sortDropdown = document.getElementById('sort-dropdown');
 const addRutineBtn = document.getElementById('rutine-btn');
 const backBtn = document.querySelector('.back-btn');
 
+const errorMessage = document.querySelector('.error-message')
+
 //Local och sessionstorage
 const loggedUser = sessionStorage.getItem("loggedInUser");
 let habits = [];
@@ -24,6 +26,14 @@ function loadHabits() {
 function saveHabits() {
     localStorage.setItem(`habits_${loggedUser}`, JSON.stringify(habits));
 }
+
+// Logga ut
+const logoutBtn = document.querySelector('.logout');
+
+logoutBtn.addEventListener('click', () => {
+    sessionStorage.removeItem('loggedInUser');
+    window.location.href = '../login/login.html';
+});
 
 
 // Visa/dölj formulär 
@@ -58,7 +68,7 @@ function createCard(habit) {
             </div>
             <div class="counter-container">
                 <div class="counter-header">
-                    <p>Mål: ${habit.goal} reps</p>
+                    <p>Goal: ${habit.goal} reps</p>
                 </div>
                 <h3><i class="fa-solid fa-fire"></i></h3>
                 <div class="counter-controls">
@@ -68,7 +78,7 @@ function createCard(habit) {
                 </div>
             </div>
             <div class="priority-container">
-                <h3>Prioritet</h3>
+                <h3>Priority</h3>
                 <p>${habit.priorityText}</p>
             </div>
         </div>
@@ -130,6 +140,53 @@ form.addEventListener('submit', (e) => {
     
     addRutineContainer.classList.add('hidden');
     habitsContainer.classList.remove('hidden');
+});
+
+let filteredHabits = [];
+
+// Funktion för att visa rutiner
+function renderHabits(habitsToRender) {
+    const container = document.getElementById('routines-container');
+    container.innerHTML = '';
+    habitsToRender.forEach(habit => displayHabit(habit));
+}
+
+//Filtrera på prioritet
+filterDropdown.addEventListener('change', () => { 
+    const dropdownValue = filterDropdown.value;
+
+    filteredHabits = dropdownValue === 'all'
+        ? [...habits]
+        : habits.filter(habit => habit.priority === dropdownValue);
+
+    if (filteredHabits.length === 0 && dropdownValue !== 'all'){
+        errorMessage.textContent = `Det finns inga rutiner att visa`
+    } else {
+        errorMessage.textContent = '';
+    }
+
+    renderHabits(filteredHabits);
+}); 
+
+// Sortering 
+sortDropdown.addEventListener('change', () => {
+    const sortValue = sortDropdown.value;
+
+    filteredHabits.sort((a, b) => {  
+        if (sortValue.includes('priority')){
+            const values = {high: 3, medium: 2, low: 1};
+            return sortValue.includes('falling') ?
+                values[b.priority] - values[a.priority] :
+                values[a.priority] - values[b.priority];
+        }
+        const repsA = parseInt(a.completedReps);
+        const repsB = parseInt(b.completedReps);
+        return sortValue.includes('falling') ?
+            repsB - repsA :
+            repsA - repsB;
+    });
+
+    renderHabits(filteredHabits);  
 });
 
 loadHabits();
