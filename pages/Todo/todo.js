@@ -91,9 +91,6 @@ const addNewTodo = () => {
         todos = [...todos, newTodo]
     }
 
-
-
-
     openDefaultCard()
     renderTodos()
     saveTodos()
