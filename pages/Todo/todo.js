@@ -133,18 +133,21 @@ const handleCheckbox = (todo, todoMain) => {
     saveTodos()
 }
 
-let filteredTodos = []
+let filteredTodos = [];
 
 const filterCompleted = () => {
-    const selectfilter = document.getElementById('sort').value;
-    if(selectfilter === 'All'){
-        filteredTodos = [...todos]
-    }else{
-        filteredTodos = todos.filter(todo => !todo.isCompleted)
+    const selectFilter = document.getElementById('sort').value;
+
+    if (selectFilter === 'All') {
+        filteredTodos = [...todos];
+    } else if (selectFilter === 'Completed') {
+        filteredTodos = todos.filter(todo => todo.isCompleted);
+    } else if (selectFilter === 'not-completed') {
+        filteredTodos = todos.filter(todo => !todo.isCompleted);
     }
-    handleChangeCategory()
-    renderTodos(filteredTodos)
-}
+
+    handleChangeCategory(); 
+};
 
 const handleChangeCategory = () => {
     const selectCategory = document.getElementById('category').value;
@@ -154,14 +157,14 @@ const handleChangeCategory = () => {
     if (selectCategory !== "All") {
         finalFilteredTodos = finalFilteredTodos.filter(todo => todo.category === selectCategory);
     }
-    renderTodos(finalFilteredTodos)
+
+    renderTodos(finalFilteredTodos); 
 };
 
 
-
-
-
 document.getElementById('category').addEventListener('change', handleChangeCategory);
+document.getElementById('sort').addEventListener('change', filterCompleted);
+
 
 
 const renderTodos = (todoArr = todos) => {
