@@ -83,15 +83,28 @@ document.addEventListener("DOMContentLoaded", () => {
         upcomingList.innerHTML = "";
         pastList.innerHTML = "";
         let events = getEvents();
-        events.sort((a, b) => new Date(a.start) - new Date(b.start));
-        
+    
+       
+        events.sort((a, b) => {
+            let startA = new Date(a.start);
+            let startB = new Date(b.start);
+            let endA = new Date(a.end);
+            let endB = new Date(b.end);
+    
+           
+            if (startA - startB !== 0) {
+                return startA - startB;
+            }
+            return endA - endB;
+        });
+    
         const now = new Date();
         const filter = filterSelect.value;
-
+    
         let hasUpcoming = false;
         let hasPast = false;
         let hasEvents = false;
-        
+    
         events.forEach(event => {
             const eventDiv = document.createElement("div");
             eventDiv.classList.add("event-item");
@@ -99,9 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
             Datum: ${event.start.split("T")[0]} - ${event.end.split("T")[0]} <br> 
             Starttid: ${event.start.split("T")[1]} <br> 
             Sluttid: ${event.end.split("T")[1]}`;
-            
-            
-            
+    
             const deleteBtn = document.createElement("button");
             deleteBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
             deleteBtn.style.background = "none";
@@ -109,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
             deleteBtn.style.cursor = "pointer";
             deleteBtn.style.color = "#F5ECD5";
             deleteBtn.addEventListener("click", () => deleteEvent(event.id));
-            
+    
             const editBtn = document.createElement("button");
             editBtn.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
             editBtn.style.background = "none";
@@ -117,15 +128,15 @@ document.addEventListener("DOMContentLoaded", () => {
             editBtn.style.cursor = "pointer";
             editBtn.style.color = "#F5ECD5";
             editBtn.addEventListener("click", () => editEvent(event.id));
-            
+    
             eventDiv.appendChild(editBtn);
             eventDiv.appendChild(deleteBtn);
-            
-            let eventEndTime = new Date (event.end);
-            if (eventEndTime < now){
+    
+            let eventEndTime = new Date(event.end);
+            if (eventEndTime < now) {
                 eventDiv.classList.add("past-event");
-
-                if(filter === "all" || filter === "past") {
+    
+                if (filter === "all" || filter === "past") {
                     pastList.appendChild(eventDiv);
                     hasPast = true;
                     hasEvents = true;
