@@ -1,9 +1,3 @@
-
-// let loggedInUser = localStorage.getItem('loggedInUser')
-// if(loggedInUser === null) {
-//     window.location.href = '/pages/Login/login.html'
-// }
-
 const errorMessages = [
     'Password must contain at least 5 letters',
     'Invalid username or password',
@@ -32,31 +26,12 @@ const login = () => {
 
     // check if passwords match
     if (storedPassword === password) {
-        sessionStorage.setItem('loggedInUser', username);
+        localStorage.setItem('loggedInUser', username);
         window.location.href = '../Homepage/homepage.html';
     } else {
         errorText.innerHTML = "Invalid username or password";
     }
 };
 
-const logOut = () => {
-    if(sessionStorage.getItem('loggedInUser')== null){
-        window.location.href = '/pages/Login/login.html'
-        return
-    }
-    sessionStorage.removeItem('loggedInUser')
-    window.location.href = '/pages/Login/login.html'
-
-}
-
 const loginButton = document.querySelector('.login-btn');
-if (loginButton) {
-    loginButton.addEventListener('click', login);
-}
-
-const logOutButton = document.querySelector('.logout');
-if (logOutButton) {
-    logOutButton.addEventListener('click', logOut);
-}
-
-
+loginButton.addEventListener('click', login);
