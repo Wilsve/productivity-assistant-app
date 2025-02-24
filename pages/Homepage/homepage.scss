@@ -34,6 +34,7 @@ body {
     color: #ffffff;
     font-family: 'ubuntu', sans-serif;
     font-size: 1.2rem;
+    font-weight: 600;
     text-decoration: none;
     padding: 10px 20px;
 }
@@ -47,6 +48,7 @@ body {
     color: #578E7E;
     font-family: 'ubuntu', sans-serif;
     font-size: 1.2rem;
+    font-weight: 600;
     text-decoration: none;
     background-color: #F5ECD5;
     padding: 10px 20px;
@@ -60,6 +62,13 @@ body {
     color: #578E7E; 
     
 }
+}
+.username {
+    color: #ffffff;
+    font-family: 'ubuntu', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 10px 20px;
 }
 .hero {
     background-image: linear-gradient(
