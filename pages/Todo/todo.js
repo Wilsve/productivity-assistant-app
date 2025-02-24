@@ -40,6 +40,11 @@ const saveTodos = () => {
     }
 };
 
+// Skriva ut inloggat användarnamn
+const loggedInUser = sessionStorage.getItem('loggedInUser');
+const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
+document.querySelector('.username').textContent = loggedInUser;
+
 const addNewTodo = () => {
     let todoTitle = document.getElementById('todo-title').value
     let todoDesc = document.getElementById('todo-desc').value
