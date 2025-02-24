@@ -57,6 +57,14 @@ body {
   color: #578E7E;
 }
 
+.username {
+  color: #ffffff;
+  font-family: "ubuntu", sans-serif;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
 .hero {
   background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("/img/pexels-karolina-grabowska-5208363 (kopia).jpeg");
   background-size: cover;

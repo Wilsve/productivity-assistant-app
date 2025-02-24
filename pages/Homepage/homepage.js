@@ -41,3 +41,9 @@ function displayRandomQuote() {
 }
 
 document.addEventListener('DOMContentLoaded', displayRandomQuote);
+
+// Skriva ut inloggat användarnamn
+const loggedInUser = sessionStorage.getItem('loggedInUser');
+const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
+document.querySelector('.username').textContent = loggedInUser;
+
