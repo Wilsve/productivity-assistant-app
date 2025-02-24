@@ -6,9 +6,12 @@ const addTodoButton = document.querySelector('.add-todo')
 const dots = document.querySelector('.dots')
 const dropdown = document.querySelector('.edit-delete')
 const todoContainer = document.querySelector('.todo-container');
+const loggedUser = sessionStorage.getItem("loggedInUser");
+
+
 let openDropdown = false
 let currentEditIndex = null;
-const loggedUser = localStorage.getItem("loggedInUser");
+
 
 
 let todos = []
@@ -37,12 +40,20 @@ const saveTodos = () => {
     }
 };
 
+// Skriva ut inloggat användarnamn
+const loggedInUser = sessionStorage.getItem('loggedInUser');
+const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
+document.querySelector('.username').textContent = loggedInUser;
+
 const addNewTodo = () => {
     let todoTitle = document.getElementById('todo-title').value
     let todoDesc = document.getElementById('todo-desc').value
     let todoTimeEst = document.getElementById('time-est').value
     let todoCategory = document.getElementById('choose-category').value
     let todoDeadline = document.getElementById('pick-date').value
+    let errorText = document.querySelector('.error-text')
+    let todoDeadlineInput = document.getElementById('pick-date')
+    let todoTitleInput = document.getElementById('todo-title')
 
     newTodo = {
         title: todoTitle,
@@ -53,9 +64,30 @@ const addNewTodo = () => {
         category: todoCategory
     }
 
-    if(todoTitle === '' || todoTimeEst === '' || todoCategory === '' || todoDeadline === ''){
-        let errorText = document.querySelector('.error-text')
+    let selectedDate = new Date(todoDeadline);
+    let today = new Date();
+
+    if(selectedDate < today){
+        errorText.innerHTML = 'The selected date is in the past! '
+        return;
+    }
+
+    if(todoTitle.length > 23) {
+        errorText.innerHTML = 'Title can not proceed 23 characters!'
+        return;
+    }
+ 
+    if(todoTitle === ''|| todoDeadline === ''){
         errorText.innerHTML = 'Please fill in all required fields'
+        todoTitleInput.style.border = todoTitle === '' ? '2px solid red' : 'none'
+        todoDeadlineInput.style.border = todoDeadline === '' ? '2px solid red' : 'none'
+
+        setTimeout(() => {
+            todoTitleInput.style.border = ''
+            todoDeadlineInput.style.border = ''
+            errorText.innerHTML = ''
+        }, 2000);
+
         return;
     }
     // Om currentEditIndex inte är null så ändras "todon" på rätt index
@@ -100,10 +132,54 @@ const deleteTodo = (index) => {
     renderTodos();
 }
 
+let filteredTodos = [];
+const handleCheckbox = (todo, todoMain) => {
+    todo.isCompleted = !todo.isCompleted
+    todoMain.style.textDecoration = todo.isCompleted ? 'line-through' : 'none';
+    saveTodos()
+    filterCompleted()
+}
 
-const renderTodos = () => {
+
+const filterCompleted = () => {
+    const selectFilter = document.getElementById('sort').value;
+
+    if (selectFilter === 'All') {
+        filteredTodos = [...todos];
+    } else if (selectFilter === 'Completed') {
+        filteredTodos = todos.filter(todo => todo.isCompleted);
+    } else if (selectFilter === 'not-completed') {
+        filteredTodos = todos.filter(todo => !todo.isCompleted);
+    }
+
+    handleChangeCategory(); 
+};
+
+const handleChangeCategory = () => {
+    const selectCategory = document.getElementById('category').value;
+
+    let finalFilteredTodos = [...filteredTodos]; 
+
+    if (selectCategory !== "All") {
+        finalFilteredTodos = finalFilteredTodos.filter(todo => todo.category === selectCategory);
+    }
+
+    
+    renderTodos(finalFilteredTodos); 
+
+};
+
+
+document.getElementById('category').addEventListener('change', handleChangeCategory);
+document.getElementById('sort').addEventListener('change', filterCompleted);
+
+
+
+const renderTodos = (todoArr = todos) => {
     todoContainer.innerHTML = ""
-    todos.forEach((todo, index) => {
+    todoArr.forEach((todo, index) => {
+
+    const todoMain = document.createElement("div");
 
     const todoItem = document.createElement("div");
     todoItem.classList.add("todo-item");
@@ -114,28 +190,35 @@ const renderTodos = () => {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
 
+
+    checkbox.checked = todo.isCompleted;
+    todoMain.style.textDecoration = todo.isCompleted ? 'line-through' : 'none';
+
+    checkbox.addEventListener('click', ()=>handleCheckbox(todo, todoMain))
+    
+
     const checkmark = document.createElement("span");
     checkmark.classList.add("checkmark");
 
     checkboxLabel.appendChild(checkbox);
     checkboxLabel.appendChild(checkmark);
 
-    const todoMain = document.createElement("div");
     todoMain.classList.add("todo-main");
 
     const editDelete = document.createElement("div");
     editDelete.classList.add("edit-delete");
 
-    const editBtn = document.createElement("h3");
-    editBtn.innerHTML = "Edit";
-    editBtn.addEventListener('click', ()=>editTodo(index))
-
     const deleteBtn = document.createElement("h3");
     deleteBtn.innerHTML = "Delete";
     deleteBtn.addEventListener('click', ()=>deleteTodo(index))
 
-    editDelete.appendChild(editBtn);
+    const editBtn = document.createElement("h3");
+    editBtn.innerHTML = "Edit";
+    editBtn.addEventListener('click', ()=>editTodo(index))
+
+
     editDelete.appendChild(deleteBtn);
+    editDelete.appendChild(editBtn);
 
     const titleDiv = document.createElement("div");
     titleDiv.classList.add("title");
@@ -221,4 +304,10 @@ todoContainer.addEventListener('click', (event) => {
     }
 });
 
-renderTodos()
+const backButton = document.querySelector('.back-btn')
+backButton.addEventListener('click', openDefaultCard)
+
+loadTodos()
+filteredTodos = [...todos];
+renderTodos(filteredTodos)
+filterCompleted()
