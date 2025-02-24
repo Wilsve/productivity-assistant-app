@@ -20,8 +20,8 @@ html, body, main {
 }
 .navbar .nav-links {
   display: flex;
+  align-items: center;
   gap: 1em;
-  padding: 20px;
 }
 .navbar .nav-link {
   color: #ffffff;
@@ -50,6 +50,15 @@ html, body, main {
 .navbar .logout:hover {
   background-color: #FFFAEC;
   color: #578E7E;
+}
+
+.username {
+  color: #ffffff;
+  font-family: "ubuntu";
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-decoration: none;
+  padding: 10px 20px;
 }
 
 .planner {
