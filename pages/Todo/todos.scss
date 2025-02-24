@@ -348,6 +348,13 @@ textarea:focus {
     background-color: #FFFAEC;
     color: #578E7E;
   }
+  .username {
+    color: #ffffff;
+    font-family: 'ubuntu', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 10px 20px;
+  }
 
   .sort {
     display: flex;

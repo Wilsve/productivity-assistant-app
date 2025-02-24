@@ -295,7 +295,6 @@ textarea#todo-desc {
 
 textarea:focus {
   outline: none;
-
 }
 
 .navbar {
@@ -350,6 +349,14 @@ textarea:focus {
   color: #578E7E;
 }
 
+.username {
+  color: #ffffff;
+  font-family: "ubuntu", sans-serif;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
 .sort {
   display: flex;
   flex-direction: column;
@@ -359,5 +366,4 @@ textarea:focus {
 
 .sort-text {
   font-size: 18px;
-
 }/*# sourceMappingURL=todos.css.map */

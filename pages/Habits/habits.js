@@ -35,6 +35,11 @@ logoutBtn.addEventListener('click', () => {
     window.location.href = '../login/login.html';
 });
 
+// Skriva ut inloggat användarnamn
+const loggedInUser = sessionStorage.getItem('loggedInUser');
+const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
+document.querySelector('.username').textContent = loggedInUser;
+
 
 // Visa/dölj formulär 
 const buttons = [addRutineBtn, backBtn];

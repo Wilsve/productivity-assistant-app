@@ -22,6 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "login.html"; 
         });
     }
+    // Skriva ut inloggat användarnamn
+    const loggedInUser = sessionStorage.getItem('loggedInUser');
+    const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
+    document.querySelector('.username').textContent = loggedInUser;
     
     function getEvents() {
         try {

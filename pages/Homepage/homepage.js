@@ -41,3 +41,17 @@ function displayRandomQuote() {
 }
 
 document.addEventListener('DOMContentLoaded', displayRandomQuote);
+
+// Skriva ut inloggat användarnamn
+const loggedInUser = sessionStorage.getItem('loggedInUser');
+const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
+document.querySelector('.username').textContent = loggedInUser;
+
+//Logga ut
+const logoutBtn = document.querySelector('.logout');
+
+logoutBtn.addEventListener('click', () => {
+    sessionStorage.removeItem('loggedInUser');
+    window.location.href = '../login/login.html';
+});
+
