@@ -66,6 +66,13 @@ main {
   background-color: #FFFAEC;
   color: #578E7E;
 }
+.navbar .username {
+  color: #ffffff;
+  font-family: "ubuntu", sans-serif;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 10px 20px;
+}
 
 #habits-container {
   display: flex;
