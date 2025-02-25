@@ -77,8 +77,9 @@
                         <option value="other">Other</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group-2">
                     <label for="repetition-number">Goal</label>
+                    <div class="goal-group">
                     <input 
                         type="number" 
                         id="repetition-number" 
@@ -86,8 +87,14 @@
                         placeholder="0" 
                         required
                     >
+                    <select name="frequency" id="frequency" required>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                    </div>
                 </div>
-                <fieldset>
+                <fieldset class="radio-fieldset">
                     <legend>Priority</legend>
                     <div class="radio-group">
                         <div class="radio-item">
