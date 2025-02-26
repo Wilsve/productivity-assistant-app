@@ -56,6 +56,7 @@ function getFormData() {
     return {
         title: document.getElementById('rutine-title').value,
         goal: document.getElementById('repetition-number').value,
+        frequency: document.getElementById('frequency').value,
         category: document.getElementById('category').options[document.getElementById('category').selectedIndex].text,
         priority: priorityInput.value,
         priorityText: document.querySelector(`label[for="${priorityInput.id}"]`).textContent,
@@ -65,9 +66,7 @@ function getFormData() {
 // Skapa HTML för kort
 function createCard(habit) {
     return `
-        <div class="routine-card ${habit.priority}-priority">
-    <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
-    
+<div class="routine-card ${habit.priority}-priority">
     <div class="left-container">
         <div class="title-container">
             <h3>${habit.title}</h3>
@@ -77,19 +76,18 @@ function createCard(habit) {
             <p>${habit.category}</p>
         </div>
     </div>
-    
     <div class="right-container">    
         <div class="counter-container">
             <div class="counter-header">
-                <p>Goal: ${habit.goal} reps</p>
-            </div>
-            <p>Completed: ${habit.completedReps} reps</p>
-            <div class="counter-controls">
-                <button class="add-day-btn"><i class="fa-solid fa-plus"></i></button>
-                <span class="day-count">${habit.completedReps}</span>
-                <button class="remove-day-btn"><i class="fa-solid fa-minus"></i></button>
+                <p><i class="fa-solid fa-bullseye"></i> ${habit.goal} times/${habit.frequency}</p>
             </div>
         </div>
+    </div>
+    <div class="bottom-container">
+        <button class="remove-day-btn"><i class="fa-solid fa-minus"></i></button>
+        <p>${habit.completedReps}</p>
+        <button class="add-day-btn"><i class="fa-solid fa-plus"></i></button>
+        <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
     </div>
 </div>
     `;
