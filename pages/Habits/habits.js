@@ -65,8 +65,12 @@ function getFormData() {
 }
 // Skapa HTML för kort
 function createCard(habit) {
+    const isCompleted = parseInt(habit.completedReps) >= parseInt(habit.goal);
+    const completedClass = isCompleted ? 'completed-routine' : '';
+    const completedText = isCompleted ? 'KLAR!' : habit.completedReps;
+    
     return `
-<div class="routine-card ${habit.priority}-priority">
+<div class="routine-card ${habit.priority}-priority ${completedClass}">
     <div class="left-container">
         <div class="title-container">
             <h3>${habit.title}</h3>
@@ -85,7 +89,7 @@ function createCard(habit) {
     </div>
     <div class="bottom-container">
         <button class="remove-day-btn"><i class="fa-solid fa-minus"></i></button>
-        <p class="day-count">${habit.completedReps}</p>
+        <p class="day-count">${completedText}</p>
         <button class="add-day-btn"><i class="fa-solid fa-plus"></i></button>
         <button class="reset-btn"><i class="fa-solid fa-arrow-rotate-left"></i></button>
         <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
@@ -110,6 +114,7 @@ function displayHabit(habit) {
     routinesContainer.appendChild(resultDiv);
 }
 // Hanterar +,- och delete knappar
+
 document.body.addEventListener('click', (e) => {
     const target = e.target.closest('button');
     if (!target) return;
@@ -118,21 +123,37 @@ document.body.addEventListener('click', (e) => {
     if (!card) return;
 
     const dayCount = card.querySelector('.day-count');
+    const routineCard = card.querySelector('.routine-card');
     const index = Array.from(card.parentElement.children).indexOf(card);
+
+    const goalValue = parseInt(habits[index].goal);
 
     if (target.classList.contains('add-day-btn')) {
         habits[index].completedReps++;
-        dayCount.textContent = habits[index].completedReps;
+
+        if (habits[index].completedReps >= goalValue) {
+            dayCount.textContent = "KLAR!";
+            routineCard.classList.add('completed-routine');
+        } else {
+            dayCount.textContent = habits[index].completedReps;
+        }
+
         saveHabits();
     } 
     else if (target.classList.contains('remove-day-btn') && habits[index].completedReps > 0) {
         habits[index].completedReps--;
-        dayCount.textContent = habits[index].completedReps;
+
+        if (habits[index].completedReps < goalValue) {
+            dayCount.textContent = habits[index].completedReps;
+            routineCard.classList.remove('completed-routine');
+        }
+        
         saveHabits();
     }
-    else if (target.classList.contains('reset-btn')){
+    else if (target.classList.contains('reset-btn')) {
         habits[index].completedReps = 0;
         dayCount.textContent = "0";
+        routineCard.classList.remove('completed-routine');
         saveHabits();
     }
     else if (target.classList.contains('delete-btn')) {
