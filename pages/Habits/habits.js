@@ -85,8 +85,9 @@ function createCard(habit) {
     </div>
     <div class="bottom-container">
         <button class="remove-day-btn"><i class="fa-solid fa-minus"></i></button>
-        <p>${habit.completedReps}</p>
+        <p class="day-count">${habit.completedReps}</p>
         <button class="add-day-btn"><i class="fa-solid fa-plus"></i></button>
+        <button class="reset-btn"><i class="fa-solid fa-arrow-rotate-left"></i></button>
         <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
     </div>
 </div>
@@ -127,6 +128,11 @@ document.body.addEventListener('click', (e) => {
     else if (target.classList.contains('remove-day-btn') && habits[index].completedReps > 0) {
         habits[index].completedReps--;
         dayCount.textContent = habits[index].completedReps;
+        saveHabits();
+    }
+    else if (target.classList.contains('reset-btn')){
+        habits[index].completedReps = 0;
+        dayCount.textContent = "0";
         saveHabits();
     }
     else if (target.classList.contains('delete-btn')) {
