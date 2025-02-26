@@ -174,286 +174,239 @@ h1 {
   padding: 2rem;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   margin-top: 1rem;
-}
 
-#add-rutine-container .back-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: #578e7e;
-  background-color: #f5ecd5;
-  border: none;
-  cursor: pointer;
-  font-family: 'ubuntu', sans-serif;
-}
-
-#add-rutine-container #add-rutine-title {
-  color: #578e7e;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  font-family: 'ubuntu', sans-serif;
-}
-
-#add-rutine-container .form-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 80%;
-  margin-bottom: 1rem;
-}
-
-#add-rutine-container .form-group label {
-  color: #578e7e;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  font-family: 'ubuntu', sans-serif;
-}
-
-#add-rutine-container #rutine-title {
-  background-color: #ffffff;
-  color: #578E7E;
-  width: 100%;
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-  border: none;
-}
-
-#add-rutine-container #rutine-title::placeholder {
-  color: #578E7E;
-}
-
-#add-rutine-container #repetition-number {
-  background-color: #ffffff;
-  color: #578E7E;
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-  border: none;
-}
-
-#add-rutine-container #repetition-number::placeholder {
-  color: #578E7E;
-}
-
-#add-rutine-container select {
-  background-color: white;
-  color: #578E7E;
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-  border: none;
-  font-family: 'ubuntu', sans-serif;
-  width: 100%;
-}
-
-#add-rutine-container .form-group-2 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 80%;
-  margin-bottom: 1rem;
-}
-
-#add-rutine-container .form-group-2 label {
-  color: #578e7e;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  font-family: 'ubuntu', sans-serif;
-}
-
-#add-rutine-container .goal-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-}
-
-#add-rutine-container .goal-group input {
-  flex: 0 1 30%;
-  min-width: 0;
-}
-#add-rutine-container .goal-group select {
-  flex: 0 1 70%;
-  min-width: 0; 
-}
-
-#add-rutine-container .radio-fieldset {
-  width: 80%;
-  margin-bottom: 1rem;
-  border: none;
-}
-
-#add-rutine-container fieldset legend {
-  color: #578e7e;
-  font-size: 1rem;
-  font-family: 'ubuntu', sans-serif;
-  padding: 0.5rem 0;
-}
-
-#add-rutine-container .radio-group {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-#add-rutine-container .radio-item {
-  display: flex;
-  color: #578e7e;
-  font-size: 1rem;
-  font-family: 'ubuntu', sans-serif;
-  align-items: center;
-  gap: 5px;
-}
-
-#add-rutine-container input[type="radio"] {
-  accent-color: #578e7e;
-}
-
-#add-rutine-container #submit-rutine {
-  background-color: #578e7e;
-  color: #f5ecd5;
-  width: 80%;
-  height: 2rem;
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-  border: none;
-  cursor: pointer;
-  font-family: 'ubuntu', sans-serif;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-#add-rutine-container #submit-rutine:hover {
-  background-color: #f5ecd5;
-  color: #578e7e;
-  border: 1px solid #578e7e;
-  transition: 0.5s;
-}
-
-#add-routine-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-.rutine-result {
-    position: relative;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 60vh;
-    background-color: #f5ecd5;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-    margin: 1rem; 
-    font-family: 'ubuntu', sans-serif;
+  .back-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     color: #578e7e;
+    background-color: #f5ecd5;
+    border: none;
+    cursor: pointer;
+    font-family: 'ubuntu', sans-serif;
+  }
 
-    h3, p {
-        margin: 0.2rem 0;
-    }
-    
-    .delete-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        color: #578e7e;
-        background-color: #f5ecd5;
-        border: none;
-        cursor: pointer;
-        font-family: 'ubuntu', sans-serif;
-    }
-}
+  #add-rutine-title {
+    color: #578e7e;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: 'ubuntu', sans-serif;
+  }
 
-.top-container {
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+    margin-bottom: 1rem;
+
+    label {
+      color: #578e7e;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      font-family: 'ubuntu', sans-serif;
+    }
+
+    input, select {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  #rutine-title {
+    background-color: #ffffff;
+    color: #578E7E;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: none;
+
+    &::placeholder {
+      color: #578E7E;
+    }
+  }
+
+  #repetition-number {
+    background-color: #ffffff;
+    color: #578E7E;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: none;
+
+    &::placeholder {
+      color: #578E7E;
+    }
+  }
+
+  select {
+    background-color: white;
+    color: #578E7E;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: none;
+    font-family: 'ubuntu', sans-serif;
+    width: 100%;
+  }
+
+  .form-group-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+    margin-bottom: 1rem;
+
+    label {
+      color: #578e7e;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      font-family: 'ubuntu', sans-serif;
+    }
+  }
+
+  .goal-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+
+    input {
+      flex: 0 1 30%;
+      min-width: 0;
+    }
+
+    select {
+      flex: 0 1 70%;
+      min-width: 0;
+    }
+  }
+
+  .radio-fieldset {
+    width: 80%;
+    margin-bottom: 1rem;
+    border: none;
+  }
+
+  fieldset legend {
+    color: #578e7e;
+    font-size: 1rem;
+    font-family: 'ubuntu', sans-serif;
+    padding: 0.5rem 0;
+  }
+
+  .radio-group {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    gap: 3rem;
-    
-}
+  }
 
-.title-container, .counter-container, .priority-container {
-    flex: 1;
-    text-align: center;
-}
-
-.title-container, .priority-container {
+  .radio-item {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100%;
-}
-
-.counter-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .add-day-btn {
-        background-color: #578e7e;
-        color: #f5ecd5;
-        padding: 0.3rem;
-        border-radius: 0.3rem;
-        border: none;
-        cursor: pointer;
-        font-family: 'ubuntu', sans-serif;
-        margin-right: 0.3rem;
-    }
-    .add-day-btn:hover {
-        background-color: #f5ecd5;
-        color: #578e7e;
-        border: 1px solid #578e7e;
-        transition: 0.5s;
-    }
-    .remove-day-btn {
-        background-color: #578e7e;
-        color: #f5ecd5;
-        padding: 0.3rem;
-        border-radius: 0.3rem;
-        border: none;
-        cursor: pointer;
-        font-family: 'ubuntu', sans-serif;
-        margin-left: 0.3rem;
-    }
-    .remove-day-btn:hover {
-        background-color: #f5ecd5;
-        color: #578e7e;
-        border: 1px solid #578e7e;
-        transition: 0.5s;
-    }
-    
-}
-
-
-.counter-controls {
-    display: flex;
+    color: #578e7e;
+    font-size: 1rem;
+    font-family: 'ubuntu', sans-serif;
     align-items: center;
     gap: 5px;
-    margin-top: 0.2rem;
-}
-.bottom-container {
+  }
+
+  input[type="radio"] {
+    accent-color: #578e7e;
+  }
+
+  #submit-rutine {
+    background-color: #578e7e;
+    color: #f5ecd5;
+    width: 80%;
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: none;
+    cursor: pointer;
+    font-family: 'ubuntu', sans-serif;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    &:hover {
+      background-color: #f5ecd5;
+      color: #578e7e;
+      border: 1px solid #578e7e;
+      transition: 0.5s;
+    }
+  }
+
+  #add-routine-form {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    gap: 3rem;
-    margin-top: 0.5rem;
+  }
+}
 
-    .reset-day-btn {
-        background-color: #578e7e;
-        color: #f5ecd5;
-        padding: 0.3rem;
-        border-radius: 0.3rem;
-        border: none;
-        cursor: pointer;
-        font-family: 'ubuntu', sans-serif;
-    }
-    .reset-day-btn:hover {
-        background-color: #f5ecd5;
-        color: #578e7e;
-        border: 1px solid #578e7e;
-        transition: 0.5s;
-    }
-    
+.routine-card {
+  position: relative;
+  width: 60vh;
+  background-color: #f5ecd5;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  margin: 1rem 0;
+  font-family: 'ubuntu', sans-serif;
+  color: #578E7E;
+  border-left: 5px solid transparent;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-container, .right-container {
+  width: 50%;
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  
+  h3 {
+    font-size: 1.5em;
+    margin-right: 0.5rem;
+    max-width: 100%;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+  }
 }
 
 
+.priority-text {
+  font-size: 0.7em;
+  padding: 0.2rem 0.7rem;
+  border-radius: 1rem;
+  white-space: nowrap;
+}
+
+.routine-card.low-priority .priority-text {
+  background: #4CAF50;
+  color: #FFFFFF; 
+}
+
+.routine-card.medium-priority .priority-text {
+  background: #FFC107; 
+  color: #FFFFFF; 
+}
+
+.routine-card.high-priority .priority-text {
+  background: #F44336; 
+  color: #FFFFFF; 
+}
+
+.delete-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: #578E7E;
+  cursor: pointer;
+}

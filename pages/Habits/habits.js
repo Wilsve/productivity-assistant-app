@@ -65,30 +65,34 @@ function getFormData() {
 // Skapa HTML för kort
 function createCard(habit) {
     return `
-    <div class="routine-card ${habit.priority}-priority"> 
-        <div class="top-container">
-            <div class="title-container">
-                <h3>${habit.title}</h3>
-                <p>${habit.category}</p>
+        <div class="routine-card ${habit.priority}-priority">
+    <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+    
+    <div class="left-container">
+        <div class="title-container">
+            <h3>${habit.title}</h3>
+            <p class="priority-text">${habit.priorityText}</p>
+        </div>
+        <div class="category-container">
+            <p>${habit.category}</p>
+        </div>
+    </div>
+    
+    <div class="right-container">    
+        <div class="counter-container">
+            <div class="counter-header">
+                <p>Goal: ${habit.goal} reps</p>
             </div>
-            <div class="counter-container">
-                <div class="counter-header">
-                    <p>Goal: ${habit.goal} reps</p>
-                </div>
-                <h3><i class="fa-solid fa-fire"></i></h3>
-                <div class="counter-controls">
-                    <button class="add-day-btn"><i class="fa-solid fa-plus"></i></button>
-                    <span class="day-count">${habit.completedReps}</span>
-                    <button class="remove-day-btn"><i class="fa-solid fa-minus"></i></button>
-                </div>
-            </div>
-            <div class="priority-container">
-                <h3>Priority</h3>
-                <p>${habit.priorityText}</p>
+            <p>Completed: ${habit.completedReps} reps</p>
+            <div class="counter-controls">
+                <button class="add-day-btn"><i class="fa-solid fa-plus"></i></button>
+                <span class="day-count">${habit.completedReps}</span>
+                <button class="remove-day-btn"><i class="fa-solid fa-minus"></i></button>
             </div>
         </div>
-        <button class="delete-btn"><i class="fa-regular fa-circle-xmark"></i></button>
-    </div>`;
+    </div>
+</div>
+    `;
 }
 
 // Funktion för att lägga till rutin i DOM
