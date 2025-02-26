@@ -340,108 +340,118 @@ h1 {
     width: 100%;
   }
 }
-
 .routine-card {
   position: relative;
   width: 60vh;
   background-color: #f5ecd5;
   border-radius: 1rem;
   padding: 1rem;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   margin: 1rem 0;
   font-family: 'ubuntu', sans-serif;
   color: #578E7E;
   border-left: 5px solid transparent;
   display: flex;
   flex-wrap: wrap;
-}
-.routine-card.completed-routine {
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.left-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 50%;
-  padding: 0.5rem;
-  overflow: hidden;
-}
-.right-container{
-  width: 50%;
-  padding: 0.5rem;
-  overflow: hidden;
-}
-
-.title-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 100%;
   
-  h3 {
-    font-size: 1.5em;
-    margin-right: 0.5rem;
-    max-width: 100%;
-    overflow: hidden; 
-    text-overflow: ellipsis;
+  &.completed-routine {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
   }
-}
-
-.priority-text {
-  font-size: 0.6em;
-  font-weight: bold;
-  letter-spacing: 0.02em;
-  padding: 0.25rem 0.7rem;
-  border-radius: 1rem;
-  white-space: nowrap;
-}
-
-.routine-card.low-priority .priority-text {
-  background: #4CAF50;
-  color: #FFFFFF; 
-}
-
-.routine-card.medium-priority .priority-text {
-  background: #FFC107; 
-  color: #FFFFFF; 
-}
-
-.routine-card.high-priority .priority-text {
-  background: #F44336; 
-  color: #FFFFFF; 
-}
-
-.delete-btn, .reset-btn {
-  background: none;
-  border: none;
-  color: #578E7E;
-  cursor: pointer;
-}
-.counter-header {
-  background-color: #FFFAEC;
-  padding: 0.5rem;
-  border-radius: 0.7rem;
-  text-align: center;
-}
-.bottom-container {
-  width: 100%;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap:0.7rem;
-  border-top: 1px solid rgba(87, 142, 126, 0.2);
-  padding-top: 1rem;
-}
-.add-day-btn, .remove-day-btn {
-  background: #578E7E;
-  color: #F5ECD5;
-  border: none;
-  padding: 0.2rem 0.3rem;
-  border-radius: 0.5rem;
+  
+  &.low-priority {
+    .priority-text {
+      background: #4CAF50;
+      color: #FFFFFF;
+    }
+  }
+  
+  &.medium-priority {
+    .priority-text {
+      background: #FFC107;
+      color: #FFFFFF;
+    }
+  }
+  
+  &.high-priority {
+    .priority-text {
+      background: #F44336;
+      color: #FFFFFF;
+    }
+  }
+  
+  .left-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .right-container {
+    width: 50%;
+    padding: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    
+    h3 {
+      font-size: 1.5em;
+      margin-right: 0.5rem;
+      max-width: 100%;
+      overflow: hidden; 
+      text-overflow: ellipsis;
+    }
+  }
+  
+  .priority-text {
+    font-size: 0.6em;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    padding: 0.25rem 0.7rem;
+    border-radius: 1rem;
+    white-space: nowrap;
+  }
+  
+  .counter-header {
+    background-color: #FFFAEC;
+    padding: 0.5rem;
+    border-radius: 0.7rem;
+    text-align: center;
+  }
+  
+  .bottom-container {
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    border-top: 1px solid rgba(87, 142, 126, 0.2);
+    padding-top: 1rem;
+  }
+  
+  .delete-btn, .reset-btn {
+    background: none;
+    border: none;
+    color: #578E7E;
+    cursor: pointer;
+  }
+  
+  .add-day-btn, .remove-day-btn {
+    background: #578E7E;
+    color: #F5ECD5;
+    border: none;
+    padding: 0.2rem 0.3rem;
+    border-radius: 0.5rem;
+  }
 }
 
 
