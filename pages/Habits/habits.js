@@ -67,7 +67,7 @@ function getFormData() {
 function createCard(habit) {
     const isCompleted = parseInt(habit.completedReps) >= parseInt(habit.goal);
     const completedClass = isCompleted ? 'completed-routine' : '';
-    const completedText = isCompleted ? 'KLAR!' : habit.completedReps;
+    const completedText = isCompleted ? 'Done!' : habit.completedReps;
     
     return `
 <div class="routine-card ${habit.priority}-priority ${completedClass}">
@@ -132,7 +132,7 @@ document.body.addEventListener('click', (e) => {
         habits[index].completedReps++;
 
         if (habits[index].completedReps >= goalValue) {
-            dayCount.textContent = "KLAR!";
+            dayCount.textContent = "Done!";
             routineCard.classList.add('completed-routine');
         } else {
             dayCount.textContent = habits[index].completedReps;
@@ -205,6 +205,10 @@ filterDropdown.addEventListener('change', () => {
 // Sortering 
 sortDropdown.addEventListener('change', () => {
     const sortValue = sortDropdown.value;
+
+    if (filteredHabits.length === 0) {
+        filteredHabits = [...habits];
+    }
 
     filteredHabits.sort((a, b) => {  
         if (sortValue.includes('priority')){
