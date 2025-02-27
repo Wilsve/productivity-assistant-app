@@ -60,7 +60,9 @@ function getFormData() {
         category: document.getElementById('category').options[document.getElementById('category').selectedIndex].text,
         priority: priorityInput.value,
         priorityText: document.querySelector(`label[for="${priorityInput.id}"]`).textContent,
-        completedReps: 0 
+        completedReps: 0,
+        streak: 0,
+        lastUpdated: null
     };
 }
 // Skapa HTML för kort
@@ -88,11 +90,18 @@ function createCard(habit) {
         </div>
     </div>
     <div class="bottom-container">
-        <button class="remove-day-btn"><i class="fa-solid fa-minus"></i></button>
-        <p class="day-count">${completedText}</p>
-        <button class="add-day-btn"><i class="fa-solid fa-plus"></i></button>
-        <button class="reset-btn"><i class="fa-solid fa-arrow-rotate-left"></i></button>
-        <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+        <div class="streak-container">
+            <div class="streak-header">
+                <p><i class="fa-solid fa-fire"></i> ${habit.streak} days in a row</p>
+            </div>
+        </div>
+            <div class="day-container">
+                <button class="remove-day-btn"><i class="fa-solid fa-minus"></i></button>
+                <p class="day-count">${completedText}</p>
+                <button class="add-day-btn"><i class="fa-solid fa-plus"></i></button>
+                <button class="reset-btn"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+                <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
     </div>
 </div>
     `;
@@ -127,8 +136,34 @@ document.body.addEventListener('click', (e) => {
     const index = Array.from(card.parentElement.children).indexOf(card);
 
     const goalValue = parseInt(habits[index].goal);
+    const today = new Date().toDateString();
 
+    
     if (target.classList.contains('add-day-btn')) {
+
+        if (habits[index].completedReps === 0 || 
+            (habits[index].completedReps === goalValue - 1 && habits[index].lastUpdated !== today)) {
+            
+            if (habits[index].lastUpdated !== today) {
+
+                if (habits[index].lastUpdated) {
+                    const lastDate = new Date(habits[index].lastUpdated);
+                    const yesterday = new Date();
+                    yesterday.setDate(yesterday.getDate() - 1);
+                    
+                    if (lastDate.toDateString() === yesterday.toDateString()) {
+                        habits[index].streak++;
+                    } 
+                    else if (lastDate < yesterday) {
+                        habits[index].streak = 1;
+                    }
+                } else {
+                    habits[index].streak = 1;
+                }
+                
+                habits[index].lastUpdated = today;
+            }
+        }
         habits[index].completedReps++;
 
         if (habits[index].completedReps >= goalValue) {
@@ -137,6 +172,11 @@ document.body.addEventListener('click', (e) => {
         } else {
             dayCount.textContent = habits[index].completedReps;
         }
+
+        const streakElement = card.querySelector('.streak-header p');
+    if (streakElement) {
+        streakElement.innerHTML = `<i class="fa-solid fa-fire"></i> ${habits[index].streak} days in a row`;
+    }
 
         saveHabits();
     } 
