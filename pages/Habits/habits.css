@@ -143,29 +143,43 @@ main {
 #habits-container .filter-container-wrapper {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.15rem;
 }
 #habits-container #filter-dropdown {
   background-color: #578e7e;
   color: #f5ecd5;
-  width: 10rem;
+  width: auto;
   height: 2rem;
   padding: 0.5rem;
   border-radius: 0.3rem;
   border: none;
   cursor: pointer;
   font-family: "ubuntu", sans-serif;
+  margin-top: 1rem;
 }
 #habits-container #sort-dropdown {
   background-color: #578e7e;
   color: #f5ecd5;
-  width: 10rem;
+  width: auto;
   height: 2rem;
   padding: 0.5rem;
   border-radius: 0.3rem;
   border: none;
   cursor: pointer;
   font-family: "ubuntu", sans-serif;
+  margin-top: 1rem;
+}
+#habits-container #frequency-dropdown {
+  background-color: #578e7e;
+  color: #f5ecd5;
+  width: auto;
+  height: 2rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: none;
+  cursor: pointer;
+  font-family: "ubuntu", sans-serif;
+  margin-top: 1rem;
 }
 #habits-container .error-messeage p {
   color: #F44336;

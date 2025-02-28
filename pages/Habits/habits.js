@@ -245,7 +245,7 @@ filterDropdown.addEventListener('change', () => {
         : habits.filter(habit => habit.priority === dropdownValue);
 
     if (filteredHabits.length === 0 && dropdownValue !== 'all'){
-        errorMessage.textContent = `Det finns inga rutiner att visa`
+        errorMessage.textContent = `No routines found!`
     } else {
         errorMessage.textContent = '';
     }
