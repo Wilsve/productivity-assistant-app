@@ -138,7 +138,7 @@ h1 {
     background: #578E7E;
     color: #F5ECD5;
   }
-
+  
 .filter-container h2 {
   color: #578e7e;
   font-size: 1rem;
@@ -198,7 +198,7 @@ h1 {
     background-color: #f5ecd5;
     border: none;
     cursor: pointer;
-    font-family: 'ubuntu', sans-serif;
+    font-size: large;
   }
 
   #add-rutine-title {
@@ -338,7 +338,6 @@ h1 {
     cursor: pointer;
     font-family: 'ubuntu', sans-serif;
     margin-top: 1rem;
-    margin-bottom: 1rem;
 
     &:hover {
       background-color: #f5ecd5;
