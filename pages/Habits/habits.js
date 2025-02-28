@@ -4,8 +4,10 @@ const form = document.getElementById('add-routine-form');
 const filterDropdown = document.getElementById('filter-dropdown');
 const sortDropdown = document.getElementById('sort-dropdown');
 
+
 const addRutineBtn = document.getElementById('rutine-btn');
 const backBtn = document.querySelector('.back-btn');
+const filterBtn = document.querySelector('.filter-btn');
 
 const errorMessage = document.querySelector('.error-message')
 
@@ -49,6 +51,15 @@ buttons.forEach(btn => {
         habitsContainer.classList.toggle('hidden');
     });
 });
+
+//Filter knapp
+filterBtn.addEventListener('click', () => {
+    const filterContainers = document.querySelectorAll('.filter-container');
+    filterContainers.forEach(container => {
+        container.classList.toggle('hidden');
+    });
+});
+
 
 // Hämta form data
 function getFormData() {

@@ -81,9 +81,8 @@ main {
 #habits-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: normal;
   justify-content: flex-start;
-  height: 35vh;
   width: 60vh;
   background-color: #f5ecd5;
   border-radius: 1rem;
@@ -92,10 +91,10 @@ main {
   margin-top: 1rem;
 
 p {
-  margin-top: 0.7rem;
+  margin-top: 1.5rem;
   font-family: 'ubuntu', sans-serif;
   font-weight: bold;
-  color: red;
+  color: #F44336;
   
 }
 
@@ -123,13 +122,29 @@ h1 {
     border: 1px solid #578e7e;
     transition: 0.5s;
   }
+  .filter-btn {
+    background-color: #F5ECD5;
+    color: #578E7E;
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: 0.1em solid #578E7E;
+    cursor: pointer;
+    font-family: 'ubuntu', sans-serif;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+  }
+  .filter-btn:hover {
+    background: #578E7E;
+    color: #F5ECD5;
+  }
 
 .filter-container h2 {
   color: #578e7e;
   font-size: 1rem;
   margin-bottom: 1rem;
   font-family: 'ubuntu', sans-serif;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 .filter-container-wrapper {
   display: flex;
@@ -159,7 +174,7 @@ h1 {
   font-family: 'ubuntu', sans-serif;
 }
 .error-messeage p {
-  color: red;
+  color: #F44336;
 }
 }
 #add-rutine-container {
