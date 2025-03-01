@@ -1,3 +1,4 @@
+
 const quotes = [
     {
         quote: "fetch('coffee').then(startWorking).catch(needMoreCoffee)",
@@ -30,17 +31,40 @@ const quotes = [
 ];
 
 
-function displayRandomQuote() {
-    const quoteElement = document.getElementById('quote');
-    const authorElement = document.getElementById('author');
-    
-    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    
-    quoteElement.textContent = randomQuote.quote;
-    authorElement.textContent = randomQuote.author;
+const apiKey = 'P4hTMGSMdQyc+Qfw69VOuw==Vul8uy2NTMeRSLN3'
+const fetchQuote = async () => {
+    try {
+        const response = await fetch('https://api.api-ninjas.com/v1/quotes', 
+        {
+            method: 'GET',
+            headers: {
+                'X-Api-Key': apiKey,
+            },
+        })
+
+        if(!response.ok){
+            throw new Error(`Error: ${response.statusText}`)
+        }
+
+        const data = await response.json();
+        const quote = data[0]
+
+        const quoteElement = document.getElementById('quote');
+        const authorElement = document.getElementById('author');
+
+        quoteElement.textContent = quote.quote;
+        authorElement.textContent = quote.author;
+        
+    } catch (error) {
+        console.log('failed to fetch')
+    }
 }
 
-document.addEventListener('DOMContentLoaded', displayRandomQuote);
+fetchQuote()
+
+
+
+
 
 // Skriva ut inloggat användarnamn
 const loggedInUser = sessionStorage.getItem('loggedInUser');

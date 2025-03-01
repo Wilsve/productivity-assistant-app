@@ -71,10 +71,6 @@ body {
     padding: 10px 20px;
 }
 .hero {
-    background-image: linear-gradient(
-        rgba(255, 255, 255, 0.5),
-        rgba(255, 255, 255, 0.5)
-    ), url('/img/pexels-karolina-grabowska-5208363\ \(kopia\).jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -88,17 +84,23 @@ body {
 
 
 .quote-container {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 2rem;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    font-size: 28px;
+    font-weight: 600;
+    color: black;
+    
     
 }
 
 .quote {
-    font-size: 1.4rem;
     font-family: 'Ubuntu', sans-serif;
-    margin-bottom: 1rem;
     line-height: 1.4;
 }
 
@@ -111,8 +113,9 @@ body {
 }
 
 .quote-author {
-    font-size: 1.1rem;
-    opacity: 0.8;
+    font-size: 1.3rem;
+    opacity: 0.6;
+
 }
 
 .quote-author::before {
