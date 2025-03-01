@@ -55,3 +55,27 @@ logoutBtn.addEventListener('click', () => {
     window.location.href = '../login/login.html';
 });
 
+let userTodos = []
+let userHabits = []
+let userEvents = []
+const loadUserData = () => {
+    if(loggedInUser){
+        const storedUserTodos = localStorage.getItem(`todos_${loggedInUser}`)
+        const storedUserEvents = localStorage.getItem(`events_${loggedInUser}`)
+        const storedUserHabits = localStorage.getItem(`events_${loggedInUser}`)
+        if(storedUserEvents){
+            userEvents = JSON.parse(storedUserEvents)
+        }
+        if(storedUserHabits){
+            userHabits = JSON.parse(storedUserHabits)
+        }
+        if(storedUserTodos){
+            userTodos = JSON.parse(storedUserTodos)
+        }
+    }
+}
+loadUserData()
+
+console.log(userEvents)
+console.log(userHabits)
+console.log(userTodos)
