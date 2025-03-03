@@ -3,6 +3,7 @@ const habitsContainer = document.querySelector('#habits-container');
 const form = document.getElementById('add-routine-form');
 const filterDropdown = document.getElementById('filter-dropdown');
 const sortDropdown = document.getElementById('sort-dropdown');
+const frequencyDropdown = document.getElementById('frequency-dropdown');
 
 
 const addRutineBtn = document.getElementById('rutine-btn');
@@ -227,6 +228,7 @@ form.addEventListener('submit', (e) => {
     habitsContainer.classList.remove('hidden');
 });
 
+// Definition av filter
 let filteredHabits = [];
 
 // Funktion för att visa rutiner
@@ -278,4 +280,24 @@ sortDropdown.addEventListener('change', () => {
     renderHabits(filteredHabits);  
 });
 
+//Filter för tidsperiod 
+frequencyDropdown.addEventListener('change', () => {
+    const selectedFrequency = frequencyDropdown.value;
+    const habitsToFilter = filteredHabits.length > 0 ? [...filteredHabits] : [...habits];
+    
+    filteredHabits = selectedFrequency === 'all'
+        ? habitsToFilter
+        : habitsToFilter.filter(habit => habit.frequency === selectedFrequency);
+
+    if (filteredHabits.length === 0 && selectedFrequency !== 'all'){
+        errorMessage.textContent = `No ${selectedFrequency} routines found`;
+    } else {
+        errorMessage.textContent = '';
+    }
+
+    renderHabits(filteredHabits);
+});
+
 loadHabits();
+filteredHabits = [...habits]; 
+renderHabits(habits);

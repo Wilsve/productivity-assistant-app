@@ -133,6 +133,15 @@ main {
   background: #578E7E;
   color: #F5ECD5;
 }
+#habits-container label {
+  color: #578e7e;
+  font-size: 1rem;
+  font-family: "ubuntu", sans-serif;
+  padding: 0.5rem 0;
+}
+#habits-container .filter-container input[type=radio] {
+  accent-color: #578e7e;
+}
 #habits-container .filter-container h2 {
   color: #578e7e;
   font-size: 1rem;
@@ -143,7 +152,7 @@ main {
 #habits-container .filter-container-wrapper {
   display: flex;
   justify-content: center;
-  gap: 1.15rem;
+  gap: 1.6rem;
 }
 #habits-container #filter-dropdown {
   background-color: #578e7e;

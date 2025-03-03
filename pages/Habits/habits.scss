@@ -138,7 +138,15 @@ h1 {
     background: #578E7E;
     color: #F5ECD5;
   }
-  
+  label {
+    color: #578e7e;
+    font-size: 1rem;
+    font-family: 'ubuntu', sans-serif;
+    padding: 0.5rem 0;
+  }
+  .filter-container input[type="radio"] {
+    accent-color: #578e7e;
+  } 
 .filter-container h2 {
   color: #578e7e;
   font-size: 1rem;
@@ -149,7 +157,7 @@ h1 {
 .filter-container-wrapper {
   display: flex;
   justify-content: center;
-  gap: 1.15rem;
+  gap: 1.6rem;
 }
 #filter-dropdown {
   background-color: #578e7e;
