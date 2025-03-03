@@ -1,3 +1,4 @@
+// Hämta viktiga element
 const addRutineContainer = document.getElementById('add-rutine-container');
 const habitsContainer = document.querySelector('#habits-container');
 const form = document.getElementById('add-routine-form');
@@ -343,6 +344,30 @@ if (radioAll) {
     });
 }
 
+// Kategori filter 
+
+const categoryDropdown = document.getElementById('category-dropdown');
+
+categoryDropdown.addEventListener('change', () => {
+    const selectedCategory = categoryDropdown.value;
+    const habitsToFilter = filteredHabits.length > 0 ? [...filteredHabits] : [...habits];
+
+    if (selectedCategory === "Category" || !selectedCategory) {
+        filteredHabits = habitsToFilter;
+    } else {
+        filteredHabits = habitsToFilter.filter(habit => 
+            habit.category.toLowerCase() === selectedCategory
+        );
+    }
+    
+    if (filteredHabits.length === 0) {
+        errorMessage.textContent = `No ${selectedCategory} routines found!`;
+    } else {
+        errorMessage.textContent = '';
+    }
+    
+    renderHabits(filteredHabits);
+});
 
 
 loadHabits();
