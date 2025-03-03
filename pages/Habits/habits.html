@@ -61,10 +61,20 @@
             </div>
         <div class="filter-container hidden">
             <h2>Status</h2>
-            <input type="radio" name="status" value="done" id="done" required>
-            <label for="done">Done</label>
-            <input type="radio" name="status" value="inprogress" id="inprogress" required>
-            <label for="inprogress">In Progress</label>
+            <div class="status-filter">
+                <label>
+                    <input type="radio" name="status" id="all-status" checked>
+                    All
+                </label>
+                <label>
+                    <input type="radio" name="status" id="done">
+                    Completed
+                </label>
+                <label>
+                    <input type="radio" name="status" id="inprogress">
+                    In Progress
+                </label>
+            </div>
         </div>
         <p class="error-message"></p>
         </section>

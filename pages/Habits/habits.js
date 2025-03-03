@@ -298,6 +298,53 @@ frequencyDropdown.addEventListener('change', () => {
     renderHabits(filteredHabits);
 });
 
+// Filter för utförd eller pågående aktivitet
+const radioDone = document.getElementById('done');
+const radioInprogress = document.getElementById('inprogress');
+const radioAll = document.getElementById('all-status');
+
+radioDone.addEventListener('click', () => {
+    const habitsToFilter = [...habits];
+
+    filteredHabits = habitsToFilter.filter(habit =>
+        parseInt(habit.completedReps) >= parseInt(habit.goal)
+    );
+
+    if (filteredHabits.length === 0) {
+        errorMessage.textContent = 'No completed routines found!';
+    } else {
+        errorMessage.textContent = '';
+    }
+    renderHabits(filteredHabits);
+    
+});
+
+radioInprogress.addEventListener('click', () => {
+    const habitsToFilter = [...habits];
+    
+    filteredHabits = habitsToFilter.filter(habit => 
+        parseInt(habit.completedReps) < parseInt(habit.goal)
+    );
+    
+    if (filteredHabits.length === 0) {
+        errorMessage.textContent = 'No routines in progress found!';
+    } else {
+        errorMessage.textContent = '';
+    }
+    
+    renderHabits(filteredHabits);
+});
+
+if (radioAll) {
+    radioAll.addEventListener('click', () => {
+        filteredHabits = [...habits];
+        errorMessage.textContent = '';
+        renderHabits(filteredHabits);
+    });
+}
+
+
+
 loadHabits();
 filteredHabits = [...habits]; 
 renderHabits(habits);
