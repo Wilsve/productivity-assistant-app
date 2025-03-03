@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskFlow</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="homepage.css">
     <script src="homepage.js" defer></script>
 </head>
@@ -35,12 +36,39 @@
         </section>
         <section class="habits-summary">
             <h2 class="summary-title">HABITS</h2>
-            <div class="display-container habits"></div>
+            <div class="display-container habits">
+                <div class="events-container">
+                    <div class="title-days">
+
+                        <div class="title-category-prio">
+                            <div class="title-prio">
+                                <h3>Title</h3>
+                                <div class="prio">Low</div>
+                            </div>
+                            <p class="category">Category</p>
+                        </div>
+                        
+                        <div class="days-left">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <p>3 days in a row</p>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="event-date">
+                        <i class="fa-solid fa-fire"></i>                      
+                        Current reps: 5
+                    </div>
+                </div>
+            </div>
 
         </section>
         <section class="planner-summary">
+
             <h2 class="summary-title">PLANNER</h2>
-            <div class="display-container events"></div>
+
+            <div class="display-container events">
+                
+            </div>
 
         </section>
     </div>

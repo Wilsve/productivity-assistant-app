@@ -134,7 +134,6 @@ body {
 }
 .homepage-h1 {
     text-align: center;
-    margin-top: 2.5rem;
     color: #578E7E;
     font-size: 2.5rem;
     font-weight: 700;
@@ -146,11 +145,94 @@ body {
     padding: 3rem;
 
     .todo-summary, .habits-summary, .planner-summary {
-        background-color: #F5ECD5;
         color: #578E7E;
         padding: 1rem;
-        border-radius: 5px;
         text-align: center;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
     }
+}
+
+.display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.events-container {
+    background-color: #F5ECD5;
+    padding: 25px 35px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 20px;
+    border: 1px solid #00000014;
+
+        h3{
+            font-size: 26px;
+        }
+}
+.title-days{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #c2c2c2b7;
+    margin: auto;
+}
+
+.days-left {
+    background: #FFFAEC;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.event-date {
+    background: #FFFAEC;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto;
+    gap: 15px;
+}
+.summary-title{
+    color: white;
+    background-color: #578E7E;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 8px 58px;
+}
+
+.title-category-prio {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.title-prio{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.prio {
+    background: green;
+    color: white;
+    font-size: 14px;
+    padding: 0 10px;
+    border-radius: 20px;
 }
