@@ -112,7 +112,7 @@ const loadUserData = () => {
     }
     if (storedUserTodos) {
       let fullUserTodos = JSON.parse(storedUserTodos);
-      userTodos = fullUserTodos.slice(-3);
+      userTodos = fullUserTodos.filter((todo) => !todo.isCompleted).slice(-3);
     }
   }
 };
@@ -121,15 +121,12 @@ loadUserData();
 const habitsList = document.querySelector(".habits");
 const renderHabits = () => {
   userHabits.forEach((habit) => {
-    // Create the events container
     const eventsContainer = document.createElement("div");
     eventsContainer.className = "events-container";
 
-    // Create title and days left section
     const titleDays = document.createElement("div");
     titleDays.className = "title-days";
 
-    // Create title, category, and priority section
     const titleCategoryPrio = document.createElement("div");
     titleCategoryPrio.className = "title-category-prio";
 
@@ -137,11 +134,18 @@ const renderHabits = () => {
     titlePrio.className = "title-prio";
 
     const title = document.createElement("h3");
-    title.textContent = "Title";
+    title.textContent = habit.title;
 
     const prio = document.createElement("div");
     prio.className = "prio";
     prio.textContent = habit.priorityText;
+
+    prio.style.background =
+      habit.priority === "low"
+        ? "#4CAF50"
+        : habit.priority === "medium"
+        ? "#FFC107"
+        : "#F44336";
 
     titlePrio.appendChild(title);
     titlePrio.appendChild(prio);
@@ -150,13 +154,12 @@ const renderHabits = () => {
 
     const category = document.createElement("p");
     category.className = "category";
-    category.textContent = "Category";
+    category.textContent = habit.category;
 
     titleCategoryPrio.appendChild(category);
 
     titleDays.appendChild(titleCategoryPrio);
 
-    // Create the days left section
     const daysLeft = document.createElement("div");
     daysLeft.className = "days-left";
 
@@ -166,17 +169,15 @@ const renderHabits = () => {
     daysLeft.appendChild(bullseyeIcon);
 
     const daysText = document.createElement("p");
-    daysText.textContent = `${habit.goal}/${habit.frequency}`;
+    daysText.textContent = `${habit.goal} times/${habit.frequency}`;
 
     daysLeft.appendChild(daysText);
 
     titleDays.appendChild(daysLeft);
 
-    // Create the line divider
     const line = document.createElement("div");
     line.className = "line";
 
-    // Create the event date section
     const eventDate = document.createElement("div");
     eventDate.className = "event-date";
 
@@ -187,14 +188,12 @@ const renderHabits = () => {
 
     eventDate.innerHTML += `Current reps: ${habit.completedReps}`;
 
-    // Assemble everything
     eventsContainer.appendChild(titleDays);
     eventsContainer.appendChild(line);
     eventsContainer.appendChild(eventDate);
 
-    document.body.appendChild(eventsContainer);
+    habitsList.appendChild(eventsContainer);
 
-    // Your updated dynamic HTML structure is ready!
   });
 };
 
@@ -204,7 +203,6 @@ const renderEvents = () => {
     const eventsContainer = document.createElement("div");
     eventsContainer.className = "events-container";
 
-    // Create title and days left section
     const titleDays = document.createElement("div");
     titleDays.className = "title-days";
 
@@ -229,11 +227,9 @@ const renderEvents = () => {
 
     titleDays.appendChild(daysLeft);
 
-    // Create the line divider
     const line = document.createElement("div");
     line.className = "line";
 
-    // Create the event date section
     const eventDate = document.createElement("div");
     eventDate.className = "event-date";
 
@@ -245,16 +241,76 @@ const renderEvents = () => {
 
     eventDate.innerHTML += `${event.start} - ${event.end}`;
 
-    // Assemble everything
     eventsContainer.appendChild(titleDays);
     eventsContainer.appendChild(line);
     eventsContainer.appendChild(eventDate);
 
     eventList.appendChild(eventsContainer);
 
-    // This script dynamically creates the updated HTML structure you shared!
   });
 };
+
+const todoList = document.querySelector(".todo");
+const renderTodos = () => {
+  userTodos.forEach((todo) => {
+    const eventsContainer = document.createElement("div");
+    eventsContainer.className = "events-container";
+
+    const titleDays = document.createElement("div");
+    titleDays.className = "title-days";
+
+    const titleCategoryPrio = document.createElement("div");
+    titleCategoryPrio.className = "title-category-prio";
+
+    const titlePrio = document.createElement("div");
+    titlePrio.className = "title-prio";
+
+    const title = document.createElement("h3");
+    title.textContent = todo.title;
+
+    titlePrio.appendChild(title);
+    titleCategoryPrio.appendChild(titlePrio);
+
+    const category = document.createElement("p");
+    category.className = "category";
+    category.textContent = todo.category;
+
+    titleCategoryPrio.appendChild(category);
+
+    titleDays.appendChild(titleCategoryPrio);
+
+    const daysLeft = document.createElement("div");
+    daysLeft.className = "days-left";
+
+    const flagIcon = document.createElement("i");
+    flagIcon.className = "fa-solid fa-flag";
+
+    daysLeft.appendChild(flagIcon);
+
+    const dueText = document.createElement("p");
+    dueText.textContent = `Due - ${todo.deadline}`;
+
+    daysLeft.appendChild(dueText);
+
+    titleDays.appendChild(daysLeft);
+
+    const line = document.createElement("div");
+    line.className = "line";
+
+    const description = document.createElement("div");
+    description.className = "description";
+    description.textContent = todo.description;
+
+    eventsContainer.appendChild(titleDays);
+    eventsContainer.appendChild(line);
+    eventsContainer.appendChild(description);
+
+    todoList.appendChild(eventsContainer);
+
+  });
+};
+renderTodos();
+renderHabits();
 renderEvents();
 console.log(userEvents);
 console.log(userHabits);

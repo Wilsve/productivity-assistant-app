@@ -163,8 +163,8 @@ body {
 
 .events-container {
     background-color: #F5ECD5;
-    padding: 25px 35px;
-    width: 450px;
+    padding: 20px 35px;
+    width: 460px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -195,9 +195,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 8px;
 }
-
+a {
+    text-decoration: none
+}
 .event-date {
     background: #FFFAEC;
     padding: 8px 12px;
@@ -208,7 +210,7 @@ body {
     justify-content: center;
     width: fit-content;
     margin: 0 auto;
-    gap: 15px;
+    gap: 8px;
 }
 .summary-title{
     color: white;
@@ -232,7 +234,16 @@ body {
 .prio {
     background: green;
     color: white;
-    font-size: 14px;
+    font-size: 11px;
     padding: 0 10px;
     border-radius: 20px;
+}
+
+.description {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: start;
+    line-height: 1.2;
+    max-width: 330px;
+    color: #333;
 }
