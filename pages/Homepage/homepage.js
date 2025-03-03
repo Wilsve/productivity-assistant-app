@@ -82,19 +82,32 @@ logoutBtn.addEventListener('click', () => {
 let userTodos = []
 let userHabits = []
 let userEvents = []
+
 const loadUserData = () => {
+    
     if(loggedInUser){
         const storedUserTodos = localStorage.getItem(`todos_${loggedInUser}`)
         const storedUserEvents = localStorage.getItem(`events_${loggedInUser}`)
-        const storedUserHabits = localStorage.getItem(`events_${loggedInUser}`)
-        if(storedUserEvents){
-            userEvents = JSON.parse(storedUserEvents)
+        const storedUserHabits = localStorage.getItem(`habits_${loggedInUser}`)
+        if (storedUserEvents) {
+            let fullUserEvents = JSON.parse(storedUserEvents);
+            userEvents = fullUserEvents
+            .map(event => ({
+                ...event,
+                dateDifference: Math.abs(new Date(event.start) - new Date())
+            }))
+            .sort((a, b) => a.dateDifference - b.dateDifference)
+            .slice(0, 3); 
         }
         if(storedUserHabits){
-            userHabits = JSON.parse(storedUserHabits)
+            let fullUserHabits = JSON.parse(storedUserHabits)
+            userHabits = fullUserHabits.sort((a, b) => b.completedReps - a.completedReps)
+            .slice(0,3)
+
         }
         if(storedUserTodos){
-            userTodos = JSON.parse(storedUserTodos)
+            let fullUserTodos = JSON.parse(storedUserTodos)
+            userTodos = fullUserTodos.slice(-3)
         }
     }
 }
