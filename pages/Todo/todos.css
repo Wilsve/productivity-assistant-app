@@ -15,6 +15,7 @@ main {
   align-items: center;
   gap: 60px;
   padding: 100px 0;
+  margin-bottom: 25vh;
 }
 
 .default-card {

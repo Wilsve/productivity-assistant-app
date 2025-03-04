@@ -6,12 +6,16 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #FFFAEC;
+  display: flex;
+  flex-direction: column; 
+  margin: 0; 
+  background-color: #FFFAEC;
 }
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 25vh;
 }
 .hidden {
     display: none !important;

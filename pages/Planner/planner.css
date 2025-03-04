@@ -7,6 +7,10 @@ html, body, main {
   background: #F5ECD5;
 }
 
+main {
+  margin-bottom: 25vh;
+}
+
 .navbar {
   display: flex;
   align-items: center;
