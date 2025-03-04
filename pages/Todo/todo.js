@@ -46,6 +46,7 @@ const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
 document.querySelector('.username').textContent = loggedInUser;
 
 const addNewTodo = () => {
+    
     let todoTitle = document.getElementById('todo-title').value
     let todoDesc = document.getElementById('todo-desc').value
     let todoTimeEst = document.getElementById('time-est').value
