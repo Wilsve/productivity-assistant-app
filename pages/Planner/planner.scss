@@ -178,23 +178,28 @@ input#start-time, input#end-time, #filter, input#event-name{
     border: none;
     
 }
-
+//KOLLA PÅ DETTA SEN NÄR JAG KOMMER HEM
 .event-item {
     background: #F5ECD5;
-    height: auto;
+    min-height: 120px;
     margin-bottom: 10px;
     padding: 10px;
-    font-size: 15px;
+    font-size: 16px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 1);
     color: #578e7e;
-
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: inherit;
     .button {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 }
-
+#text{
+    
+}
 .past-event {
     background-color:#F5ECD5;
     color: gray;

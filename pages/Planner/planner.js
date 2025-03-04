@@ -112,10 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
         events.forEach(event => {
             const eventDiv = document.createElement("div");
             eventDiv.classList.add("event-item");
-            eventDiv.innerHTML = `<b>${event.name} </b> <br> 
-            Datum: ${event.start.split("T")[0]} - ${event.end.split("T")[0]} <br> 
-            Starttid: ${event.start.split("T")[1]} <br> 
-            Sluttid: ${event.end.split("T")[1]}`;
+            eventDiv.innerHTML = `<b>${event.name} </b>  
+            Datum: ${event.start.split("T")[0]} Till ${event.end.split("T")[0]} 
+            Tid: ${event.start.split("T")[1]} Till ${event.end.split("T")[1]}`;
     
             const deleteBtn = document.createElement("button");
             deleteBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
