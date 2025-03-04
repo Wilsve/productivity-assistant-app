@@ -6,27 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const loggedUser = sessionStorage.getItem("loggedInUser");
-    if (!loggedUser) {
-        alert("Ingen användare är inloggad!");
-        return;
-    }
+   
     
     eventForm.addEventListener("submit", addEvent);
     filterSelect.addEventListener("change", displayEvents);
     displayEvents();
 
-    const logoutBtn = document.querySelector(".logout");
-    if (logoutBtn) {
-        logoutBtn.addEventListener("click", () => {
-            sessionStorage.removeItem("loggedInUser"); 
-            window.location.href = "login.html"; 
-        });
-    }
+  
     // Skriva ut inloggat användarnamn
-    const loggedInUser = sessionStorage.getItem('loggedInUser');
-    const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
-    document.querySelector('.username').textContent = loggedInUser;
-    
+   
     function getEvents() {
         try {
             return JSON.parse(localStorage.getItem(`events_${loggedUser}`)) || [];
