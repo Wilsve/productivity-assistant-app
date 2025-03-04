@@ -156,15 +156,20 @@ body {
   gap: 20px;
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.0784313725);
+  transition: all 0.2s;
 }
 .events-container h3 {
   font-size: 26px;
 }
 
+.events-container:hover {
+  transform: scale(1.05);
+}
+
 .title-days {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .line {
@@ -209,7 +214,13 @@ a {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
+  transition: all 0.2s;
   padding: 8px 58px;
+  border-radius: 5px;
+}
+
+.summary-title:hover {
+  background-color: #447265;
 }
 
 .title-category-prio {

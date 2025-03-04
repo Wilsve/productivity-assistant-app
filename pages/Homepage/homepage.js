@@ -239,7 +239,7 @@ const renderEvents = () => {
 
     eventDate.appendChild(calendarIcon);
 
-    eventDate.innerHTML += `${event.start} - ${event.end}`;
+    eventDate.innerHTML += `${event.start.split("T")[0]} - ${event.end.split("T")[0]}`;
 
     eventsContainer.appendChild(titleDays);
     eventsContainer.appendChild(line);
