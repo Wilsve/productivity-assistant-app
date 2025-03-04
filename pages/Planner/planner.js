@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
             deleteBtn.style.background = "none";
             deleteBtn.style.border = "none";
             deleteBtn.style.cursor = "pointer";
-            deleteBtn.style.color = "#F5ECD5";
+            deleteBtn.style.color = "#578e7e";
             deleteBtn.addEventListener("click", () => deleteEvent(event.id));
     
             const editBtn = document.createElement("button");
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
             editBtn.style.background = "none";
             editBtn.style.border = "none";
             editBtn.style.cursor = "pointer";
-            editBtn.style.color = "#F5ECD5";
+            editBtn.style.color = "#578e7e";
             editBtn.addEventListener("click", () => editEvent(event.id));
     
             eventDiv.appendChild(editBtn);
