@@ -6,20 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const loggedUser = sessionStorage.getItem("loggedInUser");
- Feature-planner/positioning-and-scrollbar
+ 
     if (!loggedUser) {
         alert("Ingen användare är inloggad!");
         window.location.href = "/pages/Login/login.html";
     }
 
    
- develop
+
     
     eventForm.addEventListener("submit", addEvent);
     filterSelect.addEventListener("change", displayEvents);
     displayEvents();
 
- Feature-planner/positioning-and-scrollbar
+ 
     const logoutBtn = document.querySelector(".logout");
     if (logoutBtn) {
         logoutBtn.addEventListener("click", () => {
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     
    
- develop
+
     function getEvents() {
         try {
             return JSON.parse(localStorage.getItem(`events_${loggedUser}`)) || [];
@@ -97,7 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
         upcomingList.innerHTML = "";
         pastList.innerHTML = "";
         let events = getEvents();
-    
+
+        let pastEvents = JSON.parse(localStorage.getItem(`pastEvents_${loggedUser}`)) || [];
+        let upcomingEvents = [];
        
         events.sort((a, b) => {
             let startA = new Date(a.start);
@@ -118,6 +120,10 @@ document.addEventListener("DOMContentLoaded", () => {
         let hasUpcoming = false;
         let hasPast = false;
         let hasEvents = false;
+
+
+
+
     
         events.forEach(event => {
             const eventDiv = document.createElement("div");
@@ -160,12 +166,16 @@ document.addEventListener("DOMContentLoaded", () => {
             if (eventEndTime < now) {
                 eventDiv.classList.add("past-event");
     
+                pastEvents.push(event);
+
                 if (filter === "all" || filter === "past") {
                     pastList.appendChild(eventDiv);
                     hasPast = true;
                     hasEvents = true;
                 }
             } else {
+                upcomingEvents.push(event);
+
                 if (filter === "all" || filter === "upcoming") { 
                     upcomingList.appendChild(eventDiv);
                     hasUpcoming = true;
@@ -173,6 +183,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         });
+
+        localStorage.setItem(`pastEvents_${loggedUser}`, JSON.stringify(pastEvents));
+        localStorage.setItem(`upcomingEvents_${loggedUser}`,JSON.stringify(upcomingEvents));
     
         document.getElementById("upcoming-events-container").style.display = hasUpcoming ? "block" : "none";
         document.getElementById("past-events-container").style.display = hasPast ? "block" : "none";
