@@ -6,15 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const loggedUser = sessionStorage.getItem("loggedInUser");
+ 
     if (!loggedUser) {
-        alert("Ingen användare är inloggad!");
-        return;
+        alert("Please log in to continue!");
+        window.location.href = "/pages/Login/login.html";
     }
+
+   
+
     
     eventForm.addEventListener("submit", addEvent);
     filterSelect.addEventListener("change", displayEvents);
     displayEvents();
 
+ 
     const logoutBtn = document.querySelector(".logout");
     if (logoutBtn) {
         logoutBtn.addEventListener("click", () => {
@@ -22,11 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "login.html"; 
         });
     }
-    // Skriva ut inloggat användarnamn
-    const loggedInUser = sessionStorage.getItem('loggedInUser');
-    const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
-    document.querySelector('.username').textContent = loggedInUser;
     
+
+    
+
+  
+    
+   
+
     function getEvents() {
         try {
             return JSON.parse(localStorage.getItem(`events_${loggedUser}`)) || [];
@@ -87,7 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
         upcomingList.innerHTML = "";
         pastList.innerHTML = "";
         let events = getEvents();
-    
+
+        let pastEvents = JSON.parse(localStorage.getItem(`pastEvents_${loggedUser}`)) || [];
+        let upcomingEvents = [];
        
         events.sort((a, b) => {
             let startA = new Date(a.start);
@@ -108,21 +118,30 @@ document.addEventListener("DOMContentLoaded", () => {
         let hasUpcoming = false;
         let hasPast = false;
         let hasEvents = false;
+
+
+
+
     
         events.forEach(event => {
             const eventDiv = document.createElement("div");
             eventDiv.classList.add("event-item");
-            eventDiv.innerHTML = `<b>${event.name} </b> <br> 
-            Datum: ${event.start.split("T")[0]} - ${event.end.split("T")[0]} <br> 
-            Starttid: ${event.start.split("T")[1]} <br> 
-            Sluttid: ${event.end.split("T")[1]}`;
-    
+            eventDiv.innerHTML = `<h3 class="h3-card" >${event.name} </h3>
+            <div class= "date-text"> 
+            Date: ${event.start.split("T")[0]} - ${event.end.split("T")[0]} </div>
+            <div class="time-text">
+            Time: ${event.start.split("T")[1]} - ${event.end.split("T")[1]} </div>` ;
+            
+
+            const buttonContainer = document.createElement("div");
+            buttonContainer.classList.add("button-container");
+
             const deleteBtn = document.createElement("button");
-            deleteBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+            deleteBtn.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
             deleteBtn.style.background = "none";
             deleteBtn.style.border = "none";
             deleteBtn.style.cursor = "pointer";
-            deleteBtn.style.color = "#F5ECD5";
+            deleteBtn.style.color = "#578e7e";
             deleteBtn.addEventListener("click", () => deleteEvent(event.id));
     
             const editBtn = document.createElement("button");
@@ -130,22 +149,31 @@ document.addEventListener("DOMContentLoaded", () => {
             editBtn.style.background = "none";
             editBtn.style.border = "none";
             editBtn.style.cursor = "pointer";
-            editBtn.style.color = "#F5ECD5";
+            editBtn.style.color = "#578e7e";
             editBtn.addEventListener("click", () => editEvent(event.id));
-    
-            eventDiv.appendChild(editBtn);
-            eventDiv.appendChild(deleteBtn);
+            
+            buttonContainer.appendChild(editBtn);
+            buttonContainer.appendChild(deleteBtn);
+
+
+            eventDiv.appendChild(buttonContainer);
+      
+            
     
             let eventEndTime = new Date(event.end);
             if (eventEndTime < now) {
                 eventDiv.classList.add("past-event");
     
+                pastEvents.push(event);
+
                 if (filter === "all" || filter === "past") {
                     pastList.appendChild(eventDiv);
                     hasPast = true;
                     hasEvents = true;
                 }
             } else {
+                upcomingEvents.push(event);
+
                 if (filter === "all" || filter === "upcoming") { 
                     upcomingList.appendChild(eventDiv);
                     hasUpcoming = true;
@@ -153,6 +181,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         });
+
+        localStorage.setItem(`pastEvents_${loggedUser}`, JSON.stringify(pastEvents));
+        localStorage.setItem(`upcomingEvents_${loggedUser}`,JSON.stringify(upcomingEvents));
     
         document.getElementById("upcoming-events-container").style.display = hasUpcoming ? "block" : "none";
         document.getElementById("past-events-container").style.display = hasPast ? "block" : "none";

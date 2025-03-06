@@ -1,3 +1,4 @@
+@import '/css/footer.css';
 * {
   padding: 0;
   margin: 0;
@@ -6,6 +7,7 @@
 
 body {
   background: #FFFAEC;
+  padding-top: 80px;
 }
 
 main {
@@ -13,16 +15,35 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 60px;
-  padding: 100px 0;
+  padding: 70px 0 0 0;
+  min-height: 80vh;
 }
 
 .default-card {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 300px;
+  gap: 40px;
+}
+
+.filter-btn {
+  height: 55px;
+  width: 55px;
+  background-color: #578E7E;
+  border-radius: 13px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background-color: #467165;
+}
+
+.button-filter-container {
+  display: flex;
 }
 
 .todo-container {
@@ -30,6 +51,7 @@ main {
   flex-direction: column;
   gap: 25px;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .todo-card-main {
@@ -43,6 +65,7 @@ main {
   padding: 50px 70px;
   color: #578E7E;
   border-radius: 26px;
+  border: 2px solid rgba(0, 0, 0, 0.0784313725);
 }
 .todo-card-main h1 {
   text-align: center;
@@ -55,7 +78,7 @@ main {
 }
 
 .filter-container {
-  display: flex;
+  display: none;
   justify-content: space-between;
 }
 
@@ -116,6 +139,7 @@ select:hover {
 }
 
 .todo-item {
+  border: 2px solid rgba(0, 0, 0, 0.0784313725);
   display: flex;
   align-items: center;
   gap: 30px;
@@ -125,6 +149,7 @@ select:hover {
   padding: 20px 30px;
   border-radius: 26px;
   font-weight: bold;
+  transition: all 0.2s;
 }
 .todo-item h2 {
   font-size: 24px;
@@ -241,7 +266,7 @@ button:hover {
 
 .add-todo-card {
   flex-direction: column;
-  gap: 50px;
+  gap: 35px;
   font-weight: 600;
   display: none;
 }
@@ -278,7 +303,7 @@ input[type=date] {
 }
 
 input#todo-title {
-  height: 40px;
+  height: 30px;
   font-size: 20px;
   padding: 10px;
 }
@@ -298,44 +323,45 @@ textarea:focus {
 }
 
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
+  width: 100%;
   justify-content: space-between;
   background-color: #578E7E;
-  font-weight: 600;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.2em 0em;
 }
-
 .navbar .logo {
   height: 70px;
   margin-left: 30px;
 }
-
 .navbar .nav-links {
   display: flex;
   gap: 1em;
-  padding: 20px;
 }
-
 .navbar .nav-link {
   color: #ffffff;
   font-family: "ubuntu", sans-serif;
   font-size: 1.2rem;
+  font-weight: 600;
   text-decoration: none;
   padding: 10px 20px;
 }
-
 .navbar .nav-link:hover {
   background-color: #F5ECD5;
   color: #578E7E;
   border-radius: 5px;
   transition: 0.3s;
 }
-
 .navbar .logout {
   color: #578E7E;
   font-family: "ubuntu", sans-serif;
   font-size: 1.2rem;
+  font-weight: 600;
   text-decoration: none;
   background-color: #F5ECD5;
   padding: 10px 20px;
@@ -343,16 +369,15 @@ textarea:focus {
   transition: 0.3s;
   margin-right: 25px;
 }
-
 .navbar .logout:hover {
   background-color: #FFFAEC;
   color: #578E7E;
 }
-
-.username {
+.navbar .username {
   color: #ffffff;
   font-family: "ubuntu", sans-serif;
   font-size: 1.2rem;
+  font-weight: 600;
   text-decoration: none;
   padding: 10px 20px;
 }

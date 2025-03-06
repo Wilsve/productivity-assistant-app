@@ -25,6 +25,11 @@ let newTodo = {
     category: ''
 }
 
+if (!loggedUser) {
+    alert("Please log in to continue!");
+    window.location.href = "/pages/Login/login.html";
+}
+
 const loadTodos = () => {
     if (loggedUser) {
         const storedTodos = localStorage.getItem(`todos_${loggedUser}`);
@@ -40,10 +45,7 @@ const saveTodos = () => {
     }
 };
 
-// Skriva ut inloggat användarnamn
-const loggedInUser = sessionStorage.getItem('loggedInUser');
-const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
-document.querySelector('.username').textContent = loggedInUser;
+
 
 const addNewTodo = () => {
     let todoTitle = document.getElementById('todo-title').value
@@ -126,18 +128,27 @@ const editTodo = (index) => {
     openAddNewCard();
 };
 
-const deleteTodo = (index) => {
+const deleteTodo = (index, todoItem) => {
     todos.splice(index, 1)
-    saveTodos()
-    renderTodos();
+    todoItem.style.opacity = '0'
+    setTimeout(()=>{        
+        saveTodos()
+        renderTodos();}
+        ,200)
 }
 
 let filteredTodos = [];
-const handleCheckbox = (todo, todoMain) => {
+const handleCheckbox = (todo, todoMain, todoCard) => {
     todo.isCompleted = !todo.isCompleted
     todoMain.style.textDecoration = todo.isCompleted ? 'line-through' : 'none';
+    const selectFilter = document.getElementById('sort').value;
+    if(selectFilter != 'All'){
+        todoCard.style.opacity = '0'
+    }
+    setTimeout(()=>{
+        filterCompleted()
+    },200)
     saveTodos()
-    filterCompleted()
 }
 
 
@@ -194,7 +205,8 @@ const renderTodos = (todoArr = todos) => {
     checkbox.checked = todo.isCompleted;
     todoMain.style.textDecoration = todo.isCompleted ? 'line-through' : 'none';
 
-    checkbox.addEventListener('click', ()=>handleCheckbox(todo, todoMain))
+
+    checkbox.addEventListener('click', ()=>handleCheckbox(todo, todoMain, todoItem))
     
 
     const checkmark = document.createElement("span");
@@ -210,7 +222,7 @@ const renderTodos = (todoArr = todos) => {
 
     const deleteBtn = document.createElement("h3");
     deleteBtn.innerHTML = "Delete";
-    deleteBtn.addEventListener('click', ()=>deleteTodo(index))
+    deleteBtn.addEventListener('click', ()=>deleteTodo(index, todoItem))
 
     const editBtn = document.createElement("h3");
     editBtn.innerHTML = "Edit";
@@ -303,6 +315,16 @@ todoContainer.addEventListener('click', (event) => {
         }
     }
 });
+
+const filterButton = document.querySelector('.filter-btn')
+let isDown = false
+const handleToggleFilters = () => {
+    const filterContainer = document.querySelector('.filter-container')
+    filterContainer.style.display =  !isDown ? 'flex' : 'none'
+    isDown = !isDown
+}
+
+filterButton.addEventListener('click', handleToggleFilters)
 
 const backButton = document.querySelector('.back-btn')
 backButton.addEventListener('click', openDefaultCard)

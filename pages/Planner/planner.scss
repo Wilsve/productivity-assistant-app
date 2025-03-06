@@ -1,18 +1,30 @@
-html, body, main {
+@import '/css/footer.css';
+
+html, body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
-    background: #F5ECD5; 
+    background: #FFFAEC;
+}
+main {
+    min-height: 80vh;
+}
+body {
+    
 }
 
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     display: flex;
     align-items: center;
+    width: 100%;
     justify-content: space-between;
     background-color: #578E7E;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    
     font-weight: 600;
+   
 
 
 .logo {
@@ -70,11 +82,13 @@ html, body, main {
 .planner {
     font-family: 'ubuntu', sans-serif;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
-    height: 90%;
+    height:auto;
+    margin-top: 100px;
+    border:none;
+    
 
 }
 
@@ -84,10 +98,9 @@ html, body, main {
     justify-content: center;
     align-items: center;
     min-height: 340px;
-    margin-left: 50px;
-    background-color: #F5ECD5;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
-    border-radius: 10px;
+    margin-top: 20px;
+    border:none;
+    margin-bottom: 30px;
 }
 
 .upcoming-past-container {
@@ -101,7 +114,7 @@ html, body, main {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background-color: #F5ECD5;
+        width: auto;
     }
 
     .upcoming-h2, .past-h2 {
@@ -112,6 +125,9 @@ html, body, main {
 }
 
 .filter-container {
+    display: flex;
+    flex-direction: column;
+    
 
 
     label {
@@ -124,15 +140,16 @@ html, body, main {
     flex-direction: column;
     gap: 5px;
     border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
-    width: 250px;
-    height: 260px;
+    border: 2px solid #00000014;
+    width: 500px;
+    height: auto;
     padding: 20px;
     background-color: #F5ECD5;
     color: #578E7E;
+    
 
     label {
-        font-size: 20px;
+        font-size: 25px;
         font-weight: 700;
     }
 
@@ -140,13 +157,13 @@ html, body, main {
         background-color: #578E7E;
         color: #F5ECD5;
         width: 100px;
-        height: 2rem;
+        height: 50px;
         padding: 0.5rem;
         border-radius: 0.3rem;
         border: none;
         cursor: pointer;
         font-family: 'ubuntu', sans-serif;
-        font-size: 0.8rem;
+        font-size: 15px;
         padding: 5px;
         display: flex;
         justify-content: center;
@@ -162,31 +179,47 @@ html, body, main {
     }
 }
 
-input#event-name, 
-input#start-time, 
-input#end-time {
-    height: 30px;
-    padding: 0px;
-}
 
+
+
+input#start-time, input#end-time, #filter, input#event-name{
+
+    height:30px;
+    font-size: 20px;
+    color: #578e7e;
+    width:auto;
+    border-radius: 3px;
+    border: none;
+    
+}
+//KOLLA PÅ DETTA SEN NÄR JAG KOMMER HEM
 .event-item {
-    background: #578E7E;
-    height: auto;
+    background: #F5ECD5;
+    min-height: 100px;
     margin-bottom: 10px;
     padding: 10px;
-    font-size: 15px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
-    color: #F5ECD5;
+    font-size: 20px;
+    border: 2px solid #00000014;
+    color: #578e7e;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    min-width: 450px;
 
     .button {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items:flex-end;
+        
     }
 }
 
 .past-event {
-    background-color: grey;
+    background-color:#F5ECD5;
+    color: gray;
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    
 }
 
 .button-container {
@@ -194,4 +227,31 @@ input#end-time {
     justify-content: flex-end;
     align-items: center;
     padding-top: 10px;
+}
+
+.h3-card{
+    padding-top: 5px;
+    padding-bottom: 10px;
+    
+    margin: 0;
+}
+
+.date-text{
+    font-weight: 500;
+    padding-bottom: 10px;
+    background-color: #FFFAEC;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 5px;
+}
+
+.time-text{
+    margin-top: 10px;
+    font-weight: 500;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(87, 142, 126, 0.2);
+    background-color: #FFFAEC;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 5px;
 }

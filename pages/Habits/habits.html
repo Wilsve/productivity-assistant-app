@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mina Rutiner</title>
+    <title>TaskFlow - Habits</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -29,27 +29,67 @@
                 <h1 id="habits-title">My Routines</h1>
                 <button id="rutine-btn" type="button" aria-label="Add new routine">+ Add new routine</button>
             </header>
+            <button class="filter-btn"><i class="fa-solid fa-filter"></i> Filter</button>
             <div class="filter-container-wrapper">
-                <div class="filter-container">
-                    <h2>Filter by priority</h2>
+                <div class="filter-container hidden">
                     <select name="filter-dropdown" id="filter-dropdown" aria-label="Filter routines by priority">
+                        <option disabled selected>Priority</option>
                         <option value="all">All</option>
                         <option value="low">Low</option>
                         <option value="medium">Medium</option>
                         <option value="high">High</option>
                     </select>
                 </div>
-                <div class="filter-container">
-                    <h2>Sort By</h2>
-                    <select name="sort-dropdown" id="sort-dropdown" aria-label="Sort Routines">
-                        <option value="priority-falling">Priority (falling)</option>
-                        <option value="priority-rising">Priority (rising)</option>
-                        <option value="repetition-falling">Repetitions (falling)</option>
-                        <option value="repetition-rising">Repetitions (rising)</option>
+                <div class="filter-container hidden">
+                    <select name="frequency-dropdown" id="frequency-dropdown" aria-label="Sort priority">
+                        <option disabled selected>Time Period</option>
+                        <option value="all">All</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
                     </select>
                 </div>
             </div>
-            <p class="error-message"></p>
+            <div class="filter-container hidden">
+                <select name="sort-dropdown" id="sort-dropdown" aria-label="Sort Routines">
+                    <option disabled selected>Sort</option>
+                    <option value="priority-falling">Priority (falling)</option>
+                    <option value="priority-rising">Priority (rising)</option>
+                    <option value="repetition-falling">Repetitions (falling)</option>
+                    <option value="repetition-rising">Repetitions (rising)</option>
+                </select>
+            </div>
+            <div class="filter-container hidden">
+                <select name="category-dropdown" id="category-dropdown" aria-label="Sort Category">
+                    <option disabled selected>Category</option>
+                    <option value="all">All</option>
+                    <option value="health">Health</option>
+                    <option value="work">Work</option>
+                    <option value="hobby">Hobby</option>
+                    <option value="home">Home</option>
+                    <option value="sleep">Sleep</option>
+                    <option value="school">School</option>
+                    <option value="other">Other</option>
+                </select> 
+            </div>
+        <div class="filter-container hidden">
+            <h2>Status</h2>
+            <div class="status-filter">
+                <label>
+                    <input type="radio" name="status" id="all-status" checked>
+                    All
+                </label>
+                <label>
+                    <input type="radio" name="status" id="done">
+                    Completed
+                </label>
+                <label>
+                    <input type="radio" name="status" id="inprogress">
+                    In Progress
+                </label>
+            </div>
+        </div>
+        <p class="error-message"></p>
         </section>
         <section id="add-rutine-container" class="hidden" aria-labelledby="add-rutine-title">
             <button class="back-btn"><i class="fa-solid fa-arrow-left"></i></button>
@@ -73,12 +113,13 @@
                         <option value="hobby">Hobby</option>
                         <option value="home">Home</option>
                         <option value="sleep">Sleep</option>
-                        <option value="school">Shcool</option>
+                        <option value="school">School</option>
                         <option value="other">Other</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group-2">
                     <label for="repetition-number">Goal</label>
+                    <div class="goal-group">
                     <input 
                         type="number" 
                         id="repetition-number" 
@@ -86,8 +127,14 @@
                         placeholder="0" 
                         required
                     >
+                    <select name="frequency" id="frequency" required>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                    </div>
                 </div>
-                <fieldset>
+                <fieldset class="radio-fieldset">
                     <legend>Priority</legend>
                     <div class="radio-group">
                         <div class="radio-item">
@@ -107,6 +154,28 @@
                 <button id="submit-rutine">Save routine</button>
             </form>
         </section>
+        <div class="routines-container">
+
+        </div>
+
     </main>
+        <footer>
+            <div class="left-footer">
+                <a href="../Todo/todo.html" class="nav-link">TODO</a>
+                <a href="../Habits/habits.html" class="nav-link">HABITS</a>
+                <a href="../Planner/planner.html" class="nav-link">PLANNER</a>
+            </div>
+            <div class="middle-footer">
+                <a href="../Homepage/homepage.html">
+                    <img src="/img/logo.svg" alt="Logo" class="logo">
+                </a>
+            </div>
+            <div class="right-footer">
+                <p>TaskFlow is an app that helps you manage your todos, habits, and calendar all in one place. Stay organized and never miss important tasks  or events.</p>
+            </div>
+            
+        </footer>
 </body>
+<script src="../../utils/login-redirect.js"></script>
+
 </html>
