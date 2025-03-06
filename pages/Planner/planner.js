@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loggedUser = sessionStorage.getItem("loggedInUser");
  
     if (!loggedUser) {
-        alert("Ingen användare är inloggad!");
+        alert("Please log in to continue!");
         window.location.href = "/pages/Login/login.html";
     }
 

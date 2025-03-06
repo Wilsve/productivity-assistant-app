@@ -17,6 +17,13 @@ const errorMessage = document.querySelector('.error-message')
 const loggedUser = sessionStorage.getItem("loggedInUser");
 let habits = [];
 
+// Om ingen är inloggad
+
+if (!loggedUser) {
+    alert("Please log in to continue!");
+    window.location.href = "/pages/Login/login.html";
+}
+
 // Ladda sparade rutiner
 function loadHabits() {
     const storedHabits = localStorage.getItem(`habits_${loggedUser}`);
@@ -30,8 +37,6 @@ function loadHabits() {
 function saveHabits() {
     localStorage.setItem(`habits_${loggedUser}`, JSON.stringify(habits));
 }
-
-
 
 
 // Visa/dölj formulär 

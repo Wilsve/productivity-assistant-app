@@ -25,6 +25,11 @@ let newTodo = {
     category: ''
 }
 
+if (!loggedUser) {
+    alert("Please log in to continue!");
+    window.location.href = "/pages/Login/login.html";
+}
+
 const loadTodos = () => {
     if (loggedUser) {
         const storedTodos = localStorage.getItem(`todos_${loggedUser}`);
