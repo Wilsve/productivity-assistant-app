@@ -6,15 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const loggedUser = sessionStorage.getItem("loggedInUser");
+ Feature-planner/positioning-and-scrollbar
     if (!loggedUser) {
         alert("Ingen användare är inloggad!");
         window.location.href = "/pages/Login/login.html";
     }
+
+   
+ develop
     
     eventForm.addEventListener("submit", addEvent);
     filterSelect.addEventListener("change", displayEvents);
     displayEvents();
 
+ Feature-planner/positioning-and-scrollbar
     const logoutBtn = document.querySelector(".logout");
     if (logoutBtn) {
         logoutBtn.addEventListener("click", () => {
@@ -27,6 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
     document.querySelector('.username').textContent = loggedInUser;
     
+
+  
+    
+   
+ develop
     function getEvents() {
         try {
             return JSON.parse(localStorage.getItem(`events_${loggedUser}`)) || [];

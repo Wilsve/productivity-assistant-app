@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskFlow</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="homepage.css">
     <script src="homepage.js" defer></script>
 </head>
@@ -18,7 +19,7 @@
             <a href="/pages/Habits/habits.html" class="nav-link">HABITS</a>
             <a href="/pages/Planner/planner.html" class="nav-link">PLANNER</a>
             <p class="username"></p>
-            <a href="#" class="logout">LOGGA UT</a>
+            <a href="#" class="logout">LOG OUT</a>
         </div>
     </nav>
     <section class="hero">
@@ -27,17 +28,53 @@
             <p id="author" class="quote-author"></p>
         </div>
     </section>
-    <h1 class="homepage-h1">Dina senaste aktiviteter</h1>
+    <h1 class="homepage-h1">Latest activities</h1>
     <div class="summary-grid">
         <section class="todo-summary">
-            <h2 class="summary-title">TODO</h2>
+            <a href="../Todo/todo.html">
+                <h2 class="summary-title">TODO</h2>
+            </a>
+            <div class="display-container todo">
+                
+                
+            </div>
         </section>
         <section class="habits-summary">
-            <h2 class="summary-title">HABITS</h2>
+            <a href="../Habits/habits.html">
+                <h2 class="summary-title">HABITS</h2>
+            </a>
+            <div class="display-container habits">
+                
+            </div>
+            
         </section>
         <section class="planner-summary">
-            <h2 class="summary-title">PLANNER</h2>
+            <a href="../Planner/planner.html">
+                <h2 class="summary-title">PLANNER</h2>
+            </a>
+            
+            <div class="display-container events">
+                
+            </div>
+            
         </section>
     </div>
+    <footer>
+        <div class="left-footer">
+            <a href="../Todo/todo.html" class="nav-link">TODO</a>
+            <a href="../Habits/habits.html" class="nav-link">HABITS</a>
+            <a href="../Planner/planner.html" class="nav-link">PLANNER</a>
+        </div>
+        <div class="middle-footer">
+            <a href="../Homepage/homepage.html">
+                <img src="/img/logo.svg" alt="Logo" class="logo">
+            </a>
+        </div>
+        <div class="right-footer">
+            <p>TaskFlow is an app that helps you manage your todos, habits, and calendar all in one place. Stay organized and never miss important tasks  or events.</p>
+        </div>
+
+    </footer>
 </body>
+<script src="../../utils/login-redirect.js"></script>
 </html>
