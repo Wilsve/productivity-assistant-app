@@ -1,3 +1,4 @@
+@import '/css/footer.css';
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +6,9 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
   background-color: #FFFAEC;
 }
 
@@ -12,6 +16,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 25vh;
 }
 
 .hidden {
@@ -84,7 +89,7 @@ main {
   background-color: #f5ecd5;
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(0, 0, 0, 0.0784313725);
   margin-top: 1rem;
 }
 #habits-container p {
@@ -138,6 +143,7 @@ main {
   font-size: 1rem;
   font-family: "ubuntu", sans-serif;
   padding: 0.5rem 0;
+  margin-right: 1rem;
 }
 #habits-container .filter-container input[type=radio] {
   accent-color: #578e7e;
@@ -215,7 +221,7 @@ main {
   background-color: #f5ecd5;
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(0, 0, 0, 0.0784313725);
   margin-top: 1rem;
 }
 #add-rutine-container .back-btn {
@@ -372,11 +378,10 @@ main {
   background-color: #f5ecd5;
   border-radius: 1rem;
   padding: 1rem;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(0, 0, 0, 0.0784313725);
   margin: 1rem 0;
   font-family: "ubuntu", sans-serif;
   color: #578E7E;
-  border-left: 5px solid transparent;
   display: flex;
   flex-wrap: wrap;
 }
