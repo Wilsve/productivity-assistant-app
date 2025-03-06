@@ -1,8 +1,4 @@
 
-
-/*# sourceMappingURL=login.css.map */
-
-
 * {
   padding: 0;
   margin: 0;
@@ -25,6 +21,7 @@ body {
   width: 350px;
   justify-content: space-between;
   border-radius: 30px;
+  border: 2px solid rgba(0, 0, 0, 0.0784313725);
 }
 
 .input-container {
@@ -130,5 +127,4 @@ button {
   height: 100%;
   background: rgba(0, 0, 0, 0.9);
   z-index: 1000;
-}
-
+}/*# sourceMappingURL=login.css.map */
