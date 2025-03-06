@@ -182,7 +182,7 @@ body {
 
 .events-container {
     background-color: #F5ECD5;
-    padding: 20px 35px;
+    padding: 25px 20px;
     width: 460px;
     display: flex;
     flex-direction: column;
@@ -192,7 +192,8 @@ body {
     transition: all 0.2s;
 
         h3{
-            font-size: 26px;
+            font-size: 25px;
+            text-align: left;
         }
 }
 .events-container:hover {
