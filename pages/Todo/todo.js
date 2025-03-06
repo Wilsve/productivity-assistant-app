@@ -125,16 +125,27 @@ const editTodo = (index) => {
 
 const deleteTodo = (index) => {
     todos.splice(index, 1)
-    saveTodos()
-    renderTodos();
+    todoCard = document.querySelector('.todo-item')
+    todoCard.style.opacity = '0'
+    setTimeout(()=>{        
+        saveTodos()
+        renderTodos();}
+        ,200)
 }
 
 let filteredTodos = [];
 const handleCheckbox = (todo, todoMain) => {
     todo.isCompleted = !todo.isCompleted
     todoMain.style.textDecoration = todo.isCompleted ? 'line-through' : 'none';
+    const selectFilter = document.getElementById('sort').value;
+    todoCard = document.querySelector('.todo-item')
+    if(selectFilter != 'All'){
+        todoCard.style.opacity = '0'
+    }
+    setTimeout(()=>{
+        filterCompleted()
+    },200)
     saveTodos()
-    filterCompleted()
 }
 
 
@@ -300,6 +311,16 @@ todoContainer.addEventListener('click', (event) => {
         }
     }
 });
+
+const filterButton = document.querySelector('.filter-btn')
+let isDown = false
+const handleToggleFilters = () => {
+    const filterContainer = document.querySelector('.filter-container')
+    filterContainer.style.display =  !isDown ? 'flex' : 'none'
+    isDown = !isDown
+}
+
+filterButton.addEventListener('click', handleToggleFilters)
 
 const backButton = document.querySelector('.back-btn')
 backButton.addEventListener('click', openDefaultCard)
