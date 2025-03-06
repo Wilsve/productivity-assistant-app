@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Planner</title>
     <link rel="stylesheet" href="planner.css">
     <script src="planner.js" defer ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,8 +30,8 @@
     <div class="event-form-container">
     <form id ="event-form">
         <input type="hidden" id="edit-event-id">
-        <label for="event-name">Add your event :) </label>
-        <input type="text" placeholder="" id="event-name" required> 
+        <label for="event-name">Add your event</label>
+        <input type="text" placeholder="" id="event-name" required>
 
         <label for="start-time">Start time: </label>
         <input type="datetime-local" id="start-time" required> 
@@ -48,7 +48,7 @@
             </select>
             </div>  
             <div class="button-container">
-        <button id="addEventBtn" type="submit">Add event</button>
+        <button id="addEventBtn" type="submit">Save event</button>
     </div>
       
     </form>
@@ -60,7 +60,7 @@
     <div class="events-wrapper">
     <div class="upcoming-past-container">
     <div id="upcoming-events-container">
-    <h2 class="upcoming-h2">upcoming events</h2>
+    <h2 class="upcoming-h2">Upcoming events</h2>
     <div id="upcoming-events" class="event-container"></div>
     </div>
 
