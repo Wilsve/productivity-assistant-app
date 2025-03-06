@@ -12,9 +12,14 @@ if(loggedInUser === null) {
 }
 
 // Skriva ut inloggat användarnamn
-const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
-document.querySelector(".username").textContent = loggedInUser;
+const usernameElement = document.querySelector(".username");
 
+if (loggedInUser && loggedInUser !== "null") {
+  const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
+  usernameElement.innerHTML = `<i class="fa-solid fa-user"></i> ${loggedInUser}`;
+} else {
+  usernameElement.textContent = "";
+}
 //Logga ut
 const logoutBtn = document.querySelector(".logout");
 
