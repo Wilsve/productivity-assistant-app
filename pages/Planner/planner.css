@@ -1,18 +1,12 @@
 @import '/css/footer.css';
-html, body, main {
+html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
   background: #FFFAEC;
 }
 
 main {
-  margin-bottom: 25vh;
-}
-
-body {
-  padding-top: 80px;
+  min-height: 80vh;
 }
 
 .navbar {
@@ -92,6 +86,7 @@ body {
   min-height: 340px;
   margin-top: 20px;
   border: none;
+  margin-bottom: 30px;
 }
 
 .upcoming-past-container {
