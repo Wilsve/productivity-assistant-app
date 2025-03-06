@@ -11,12 +11,14 @@ body {
   margin: 0; 
   background-color: #FFFAEC;
   padding-top: 80px;
+  
 }
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 25vh;
+    min-height: 80vh;
+
 }
 .hidden {
     display: none !important;

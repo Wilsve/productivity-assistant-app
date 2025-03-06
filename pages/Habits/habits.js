@@ -115,11 +115,9 @@ function displayHabit(habit) {
     resultDiv.classList.add('rutine-result');
     resultDiv.innerHTML = createCard(habit);
 
-    const routinesContainer = document.getElementById('routines-container') || 
-        document.createElement('div');
-    routinesContainer.id = 'routines-container';
+    const routinesContainer = document.querySelector('.routines-container')
     
-    if (!document.getElementById('routines-container')) {
+    if (!routinesContainer) {
         document.querySelector('main').appendChild(routinesContainer);
     }
     routinesContainer.appendChild(resultDiv);
