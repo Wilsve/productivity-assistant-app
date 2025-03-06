@@ -123,10 +123,9 @@ const editTodo = (index) => {
     openAddNewCard();
 };
 
-const deleteTodo = (index) => {
+const deleteTodo = (index, todoItem) => {
     todos.splice(index, 1)
-    todoCard = document.querySelector('.todo-item')
-    todoCard.style.opacity = '0'
+    todoItem.style.opacity = '0'
     setTimeout(()=>{        
         saveTodos()
         renderTodos();}
@@ -134,11 +133,10 @@ const deleteTodo = (index) => {
 }
 
 let filteredTodos = [];
-const handleCheckbox = (todo, todoMain) => {
+const handleCheckbox = (todo, todoMain, todoCard) => {
     todo.isCompleted = !todo.isCompleted
     todoMain.style.textDecoration = todo.isCompleted ? 'line-through' : 'none';
     const selectFilter = document.getElementById('sort').value;
-    todoCard = document.querySelector('.todo-item')
     if(selectFilter != 'All'){
         todoCard.style.opacity = '0'
     }
@@ -202,7 +200,8 @@ const renderTodos = (todoArr = todos) => {
     checkbox.checked = todo.isCompleted;
     todoMain.style.textDecoration = todo.isCompleted ? 'line-through' : 'none';
 
-    checkbox.addEventListener('click', ()=>handleCheckbox(todo, todoMain))
+
+    checkbox.addEventListener('click', ()=>handleCheckbox(todo, todoMain, todoItem))
     
 
     const checkmark = document.createElement("span");
@@ -218,7 +217,7 @@ const renderTodos = (todoArr = todos) => {
 
     const deleteBtn = document.createElement("h3");
     deleteBtn.innerHTML = "Delete";
-    deleteBtn.addEventListener('click', ()=>deleteTodo(index))
+    deleteBtn.addEventListener('click', ()=>deleteTodo(index, todoItem))
 
     const editBtn = document.createElement("h3");
     editBtn.innerHTML = "Edit";
