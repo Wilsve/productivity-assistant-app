@@ -1,15 +1,18 @@
-# Webflow
+# Taskflow
 
 
 ## Description
-    Webflow is a productivity app designed to help you stay organized and build better routines. It brings together a to-do list, event planner, and habit tracker, making it easier to manage tasks, plan events, and keep track of personal goals — all in one place.
+    Taskflow is a productivity app designed to help you stay organized and build better routines. It brings together a to-do list, event planner, and habit tracker, making it easier to manage tasks, plan events, and keep track of personal goals — all in one place.
 ## Demo
 
 
 
 ## Screenshots
-![Screenshot Description](screenshot-link-placeholder)
-
+![Homepage](/img/image-3.png)
+![Todo page](/img/image.png)
+![Habits page](/img/image-1.png)
+![Event planner page](/img/image-2.png)
+![Log in page](/img/image-4.png)
 ## Features
 
 
@@ -23,7 +26,7 @@ Habits Tracker:
 Build and maintain healthy habits by logging your progress over time. You can add new habits, set a target number of reps, and increment your progress daily, weekly, or monthly. This makes it easy to track habits like exercising, reading, or practicing a skill, helping you stay motivated and visualize your growth.
 
 Everyday Uses
-Webflow can be a helpful tool for:
+Taskflow can be a helpful tool for:
 
 Personal Organization: Manage daily tasks, schedule appointments, and track personal goals.
 Work and Study: Plan deadlines, keep track of meetings, and break larger projects into manageable tasks.
