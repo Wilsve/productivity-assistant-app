@@ -10,6 +10,7 @@ body {
   flex-direction: column; 
   margin: 0; 
   background-color: #FFFAEC;
+  padding-top: 80px;
 }
 main {
     display: flex;
@@ -21,14 +22,17 @@ main {
     display: none !important;
 }
 .navbar {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-    background-color: #578E7E;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 4em;
-    padding: 0.2em 0em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #578E7E;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 0.2em 0em;
 
 
 .logo {
@@ -94,7 +98,7 @@ main {
   border-radius: 1rem;
   padding: 2rem;
   border: 2px solid #00000014;
-  margin-top: 1rem;
+  margin-top: 5rem;
 
 p {
   margin-top: 1.5rem;

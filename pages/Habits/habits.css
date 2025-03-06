@@ -10,6 +10,7 @@ body {
   flex-direction: column;
   margin: 0;
   background-color: #FFFAEC;
+  padding-top: 80px;
 }
 
 main {
@@ -24,13 +25,16 @@ main {
 }
 
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
   background-color: #578E7E;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 4em;
   padding: 0.2em 0em;
 }
 .navbar .logo {
@@ -90,7 +94,7 @@ main {
   border-radius: 1rem;
   padding: 2rem;
   border: 2px solid rgba(0, 0, 0, 0.0784313725);
-  margin-top: 1rem;
+  margin-top: 5rem;
 }
 #habits-container p {
   margin-top: 1.5rem;
