@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loggedUser = sessionStorage.getItem("loggedInUser");
     if (!loggedUser) {
         alert("Ingen användare är inloggad!");
-        return;
+        window.location.href = "/pages/Login/login.html";
     }
     
     eventForm.addEventListener("submit", addEvent);
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "login.html"; 
         });
     }
-    // Skriva ut inloggat användarnamn
+    
     const loggedInUser = sessionStorage.getItem('loggedInUser');
     const userData = JSON.parse(localStorage.getItem(`user_${loggedInUser}`));
     document.querySelector('.username').textContent = loggedInUser;
@@ -112,12 +112,18 @@ document.addEventListener("DOMContentLoaded", () => {
         events.forEach(event => {
             const eventDiv = document.createElement("div");
             eventDiv.classList.add("event-item");
-            eventDiv.innerHTML = `<b>${event.name} </b>  
-            Datum: ${event.start.split("T")[0]} Till ${event.end.split("T")[0]} 
-            Tid: ${event.start.split("T")[1]} Till ${event.end.split("T")[1]}`;
-    
+            eventDiv.innerHTML = `<h3 class="h3-card" >${event.name} </h3>
+            <div class= "date-text"> 
+            Datum: ${event.start.split("T")[0]} Till ${event.end.split("T")[0]} </div>
+            <div class="time-text">
+            Tid: ${event.start.split("T")[1]} Till ${event.end.split("T")[1]} </div>` ;
+            
+
+            const buttonContainer = document.createElement("div");
+            buttonContainer.classList.add("button-container");
+
             const deleteBtn = document.createElement("button");
-            deleteBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+            deleteBtn.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
             deleteBtn.style.background = "none";
             deleteBtn.style.border = "none";
             deleteBtn.style.cursor = "pointer";
@@ -131,9 +137,14 @@ document.addEventListener("DOMContentLoaded", () => {
             editBtn.style.cursor = "pointer";
             editBtn.style.color = "#578e7e";
             editBtn.addEventListener("click", () => editEvent(event.id));
-    
-            eventDiv.appendChild(editBtn);
-            eventDiv.appendChild(deleteBtn);
+            
+            buttonContainer.appendChild(editBtn);
+            buttonContainer.appendChild(deleteBtn);
+
+
+            eventDiv.appendChild(buttonContainer);
+      
+            
     
             let eventEndTime = new Date(event.end);
             if (eventEndTime < now) {
