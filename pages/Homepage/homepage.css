@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+main {
+  min-height: 80vh;
+}
+
 body {
   display: flex;
   flex-direction: column;
