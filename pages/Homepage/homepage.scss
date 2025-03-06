@@ -147,10 +147,11 @@ body {
     font-weight: 700;
 }
 .summary-grid {
-    display: grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap: 1rem;
+    display: flex;
+    gap: 2rem;
     padding: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
 
     .todo-summary, .habits-summary, .planner-summary {
         color: #578E7E;
@@ -158,6 +159,7 @@ body {
         text-align: center;
         display: flex;
         flex-direction: column;
+        width: 460px;
         gap: 40px;
     }
 }
