@@ -114,9 +114,9 @@ document.addEventListener("DOMContentLoaded", () => {
             eventDiv.classList.add("event-item");
             eventDiv.innerHTML = `<h3 class="h3-card" >${event.name} </h3>
             <div class= "date-text"> 
-            Datum: ${event.start.split("T")[0]} Till ${event.end.split("T")[0]} </div>
+            Date: ${event.start.split("T")[0]} - ${event.end.split("T")[0]} </div>
             <div class="time-text">
-            Tid: ${event.start.split("T")[1]} Till ${event.end.split("T")[1]} </div>` ;
+            Time: ${event.start.split("T")[1]} - ${event.end.split("T")[1]} </div>` ;
             
 
             const buttonContainer = document.createElement("div");
