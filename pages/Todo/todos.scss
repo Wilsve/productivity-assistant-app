@@ -9,6 +9,7 @@
 
 body {
     background: $background-color;
+    padding-top: 80px;
 }
 
 main {
@@ -323,13 +324,16 @@ textarea:focus {
 }
 
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: space-between;
     background-color: #578E7E;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 4em;
     padding: 0.2em 0em;
 
 
