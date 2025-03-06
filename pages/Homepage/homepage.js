@@ -47,7 +47,7 @@ let userEvents = [];
 const loadUserData = () => {
   if (loggedInUser) {
     const storedUserTodos = localStorage.getItem(`todos_${loggedInUser}`);
-    const storedUserEvents = localStorage.getItem(`events_${loggedInUser}`);
+    const storedUserEvents = localStorage.getItem(`upcomingEvents_${loggedInUser}`);
     const storedUserHabits = localStorage.getItem(`habits_${loggedInUser}`);
     if (storedUserEvents) {
       let fullUserEvents = JSON.parse(storedUserEvents);
