@@ -222,7 +222,7 @@ form.addEventListener('submit', (e) => {
 });
 
 function renderHabits(habitsToRender) {
-    const routinesContainer = document.getElementById('routines-container');
+    const routinesContainer = document.querySelector('.routines-container');
     
     if (routinesContainer) {
         routinesContainer.innerHTML = '';
