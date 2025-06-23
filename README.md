@@ -50,7 +50,7 @@ project-root/
             habits.css
             habits.js
     └── Homepage/
-        └── homepage.html
+        └── index.html
             homepage.css
             homepage.js   
     └── Todo/
